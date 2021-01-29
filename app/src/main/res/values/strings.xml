@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ApexRandom</string>
+    <string name="new_game">New Game</string>
+    <string name="apex_random_character_game">Apex Random Character/Game</string>
+    <string name="location">Location:</string>
+    <string name="character">Character:</string>
+</resources>
