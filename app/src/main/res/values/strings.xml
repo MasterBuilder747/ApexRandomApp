@@ -1,7 +1,11 @@
 <resources>
-    <string name="app_name">ApexRandom</string>
+    <string name="app_name">Apex Legends Randomizer</string>
     <string name="new_game">New Game</string>
-    <string name="apex_random_character_game">Apex Random Character/Game</string>
     <string name="location">Location:</string>
     <string name="character">Character:</string>
+    <string name="character_selection">Character selection</string>
+    <string name="map_location_selection">Map location selection</string>
+    <string name="king_s_canyon">Kings Canyon</string>
+    <string name="world_s_edge">Worlds Edge</string>
+    <string name="olympus">Olympus</string>
 </resources>

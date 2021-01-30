@@ -2,9 +2,11 @@ package com.masterbuilder747.apexrandom;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -161,45 +163,71 @@ public class MainActivity extends AppCompatActivity {
         return a[(int)(Math.random() * a.length)];
     }
 
-    RadioGroup radioGroup;
-    RadioButton radioButton; //the selected radio button
-    TextView character;
+    RadioGroup radioGroup; //the group of radioButtons, there is only 1
+    RadioButton radioButton; //the selected radio button, 1 out of the possible 3
+    TextView character; //text outputs
     TextView location;
+    ImageView charImg; //image outputs
+    ImageView mapImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //get resources
         character = findViewById(R.id.characterOutput);
         location = findViewById(R.id.locationOutput);
 
+        charImg = findViewById(R.id.characterImg);
+        mapImg = findViewById(R.id.mapImg);
+
+        //update the imageViews to show default images
+        mapImg.setImageResource(R.drawable.olympuszoom);
+        charImg.setImageResource(R.drawable.defaultchoose);
+
+        //button action
         radioGroup = findViewById(R.id.chooseMap);
         Button button = findViewById(R.id.newGameButton);
         button.setOnClickListener(v -> {
+
+            //random map location process
             //check the selected radio button, returns an id
             int radioID = radioGroup.getCheckedRadioButtonId();
             radioButton = findViewById(radioID);
-
-            //given the map selection, display the random location on text/image here
             String map = radioButton.getText().toString();
             if (map.contains("King")) {
                 //Toast.makeText(this, "King", Toast.LENGTH_SHORT).show();
-                character.setText(random(legends));
                 location.setText(random(map_kings));
             } else if (map.contains("World")) {
                 //Toast.makeText(this, "World", Toast.LENGTH_SHORT).show();
-                character.setText(random(legends));
                 location.setText(random(map_worlds));
             } else {
                 //Toast.makeText(this, "Olympus", Toast.LENGTH_SHORT).show();
-                character.setText(random(legends));
                 location.setText(random(map_olympus));
             }
+
+            //random character process
+            character.setText(random(legends));
+            String leg = character.getText().toString().toLowerCase();
+            int id = getResources().getIdentifier(leg, "drawable", getPackageName());
+            charImg.setImageResource(id);
+
         });
     }
 
     public void checkButton(View v) {
         //only used for changing the radio button, on the radio button press
+        int radioId = radioGroup.getCheckedRadioButtonId();
+        radioButton = findViewById(radioId);
+
+        String map = radioButton.getText().toString();
+        if (map.contains("King")) {
+            mapImg.setImageResource(R.drawable.kingscanyonzoom);
+        } else if (map.contains("World")) {
+            mapImg.setImageResource(R.drawable.worldsedgezoom);
+        } else {
+            mapImg.setImageResource(R.drawable.olympuszoom);
+        }
     }
 }
