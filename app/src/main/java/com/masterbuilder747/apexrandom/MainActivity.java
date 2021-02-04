@@ -30,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
             "Revenant", //s4
             "Loba", //s5
             "Rampart", //s6
-            "Horizon" //s7
+            "Horizon", //s7
+            "Fuse" //s8
     };
 
     //high tier loot unless stated
@@ -183,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
         mapImg = findViewById(R.id.mapImg);
 
         //update the imageViews to show default images
-        mapImg.setImageResource(R.drawable.olympuszoom);
+        mapImg.setImageResource(R.drawable.kingscanyonzoom);
         charImg.setImageResource(R.drawable.defaultchoose);
 
         //button action
