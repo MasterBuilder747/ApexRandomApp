@@ -1,12 +1,15 @@
 package com.masterbuilder747.apexrandom;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.app.ActionBar;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -176,6 +179,7 @@ public class MainActivity extends AppCompatActivity {
     TextView location;
     ImageView charImg; //image outputs
     ImageView mapImg;
+    ImageView markImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -188,10 +192,12 @@ public class MainActivity extends AppCompatActivity {
 
         charImg = findViewById(R.id.characterImg);
         mapImg = findViewById(R.id.mapImg);
+        markImg = findViewById(R.id.markerImg);
 
         //update the imageViews to show default images
         mapImg.setImageResource(R.drawable.kingscanyonzoom);
         charImg.setImageResource(R.drawable.defaultchoose);
+        markImg.setImageResource(R.drawable.marker);
 
         //button action
         radioGroup = findViewById(R.id.chooseMap);
@@ -206,6 +212,11 @@ public class MainActivity extends AppCompatActivity {
             if (map.contains("King")) {
                 //Toast.makeText(this, "King", Toast.LENGTH_SHORT).show();
                 location.setText(random(map_kings));
+
+                ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) markImg.getLayoutParams();
+                params.horizontalBias = 0.2f;
+                params.verticalBias = 0.2f;
+                markImg.setLayoutParams(params);
             } else if (map.contains("World")) {
                 //Toast.makeText(this, "World", Toast.LENGTH_SHORT).show();
                 location.setText(random(map_worlds));
