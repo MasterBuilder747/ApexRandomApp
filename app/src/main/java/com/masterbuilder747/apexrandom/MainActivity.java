@@ -39,8 +39,10 @@ public class MainActivity extends AppCompatActivity {
             "Airbase", //start high
             "Artillery Battery",
             "Bunker Pass",
+            "Crashed Ship",
+            "Crash Site",
             "Crypto's Map Room",
-            "Destroyed Cascades",
+            "High Desert",
             "Interstellar Relay",
             "Mirage Voyage",
             "Offshore Rig",
@@ -48,79 +50,83 @@ public class MainActivity extends AppCompatActivity {
             "Runoff",
             "Skull Salvage",
             "Singh Labs Interior",
+            "Spotted Lakes",
             "Swamps",
-            "Terminal Station F-85",
-            "Terminal Station L-19",
-            "Terminal Station O-240",
-            "Terminal Station W-73",
+//            "Terminal Station F-85",
+//            "Terminal Station L-19",
+//            "Terminal Station O-240",
+//            "Terminal Station W-73",
             "The Pit",
             "Watchtower North",
             "Watchtower South",
             "Water Treatment", //end high
-            "ARES Capacitor", //mid
-            "Artillery Underpass",
-            "Artillery Tunnel",
+            "ARES Capacitor", //start mid
+            "Broken Coast Overlook",
+            "Cage",
+            "Capacitor Overlook",
+            "Creature Containment",
+            "Destroyed Cascades",
+            "Hillside Outpost",
+            "Lagoon Crossing",
+            "Marketplace",
+            "Octane's Gauntlet",
+            "River Center",
+            "Singh Labs",
+//            "Slum Lakes",
+            "Two Spines",
+            "Two Spines Outpost",
+            "Verdant Crossing", //end mid
+            "Artillery Underpass", //start basic
             "Broken Coast",
-            "Broken Coast Overlook", //mid
             "Broken Coast South",
-            "Cage", //mid
+            "Cage Crossing",
             "Capacitor Junction",
-            "Capacitor Overlook", //mid
             "Capacitor Tunnel",
             "Caves",
-            "Creature Containment", //mid
             "Crossroads",
+            "Destroyed Artillery Tunnel",
             "Destroyed Bridges",
             "East Settlement",
-            "The Farm", //mid
             "Golden Sands",
-            "High Desert", //mid
-            "Hillside Outpost", //mid
             "Hydro Dam",
             "Hydro Tunnel",
-            "Hydro Tunnel",
-            "Marketplace", //mid
-            "Octane's Gauntlet", //mid
             "Offshore Rig Loading",
             "Reclaimed Forest",
-            "River's End", //mid
-            "River Center", //mid
-            "Singh Labs", //mid
             "Suspended Skull",
-            "Slum Lakes", //mid //will be removed in s8
-            "Two Spines", //mid
-            "Two Spines Outpost",
-            "Waterfall" //mid
+            "Uncovered Bones" //end basic
+//            "Waterfall",
+//            "The Farm",
+//            "River's End",
     };
     String[] map_worlds = {
-            "Bloodhound's Trials", //high
-            "Countdown", //high
-            "Fragment East", //high
-            "Harvester", //high
-            "Launch Site", //high
-            "Lava City", //high
-            "Lava Fissure", //high
-            "Overlook", //high
-            "Refinery", //high
-            "Staging", //high
-            "Skyhook", //high
-            "Sorting Factory", //high
-            "Survey Camp", //high
-            "Thermal Station", //high
-            "The Dome", //high
-            "The Epicenter", //high
-            "The Geyser", //high
-            "The Tree", //high
-            "The Train Yard", //high
+            "Bloodhound's Trials", //start high
+            "Countdown",
+            "Fragment East",
+            "Harvester",
+            "Launch Site",
+            "Lava City",
+            "Lava Fissure",
+            "Overlook",
+            "Refinery",
+            "Staging",
+            "Skyhook",
+            "Sorting Factory",
+            "Survey Camp",
+            "Thermal Station",
+            "The Dome",
+            "The Epicenter",
+            "The Geyser",
+            "The Tree",
+            "The Train Yard", //end high
             "Fragment West", //mid
             "Spring's End", //mid
-            "Hill Valley", //low
-            "The Mining Pass", //low
-            "The Rain Tunnel", //low
-            "The Bridge" //low
+            "Hill Valley", //basic
+            "The Bridge", //basic
+            "The Mining Pass", //basic
+            "The Rain Tunnel" //basic
     };
     String[] map_olympus = {
-            "Autumn Estates",
+            "Autumn Estates", //start high
             "Arcadia Supercarrier",
             "Docks",
             "Elysium",
@@ -129,33 +135,33 @@ public class MainActivity extends AppCompatActivity {
             "Pathfinder's Fight Night",
             "Rift Aftermath",
             "Research Basin",
-            "Central Turbine", //mid
-            "Bonsai Plaza", //mid
-            "Solar Array", //mid
-            "The Reverie Lounge",
-            "Velvet Oasis", //mid
-            "Grow Towers", //mid
-            "Golden Gardens", //mid
-            "Hammond Labs", //mid
-            "Primary Power Grid", //mid
-            "Crossroads", //low
-            "Defense Perimeter", //low
-            "Farmstead", //low
-            "Ivory Pass", //low
-            "Lab Annex", //low
-            "Maintenance", //low
-            "Phase Gateway Central", //low
-            "Phase Gateway West", //low
-            "Secondary Power Grid", //low
-            "Shipyard", //low
-            "Supply Track", //low
-            "Underpass", //low
-            "Welcome Center", //low
-            "Agriculture Entry", //low
-            "Antechamber", //low
-            "Wildflower Meadow", //low
-            "Bonsai Hillside", //low
-            //"Cargo Hold", //low //removed
+            "The Reverie Lounge", //end high
+            "Bonsai Plaza", //start mid
+            "Central Turbine",
+            "Grow Towers",
+            "Golden Gardens",
+            "Hammond Labs",
+            "Primary Power Grid",
+            "Solar Array",
+            "Velvet Oasis", //end mid
+            "Agriculture Entry", //start basic
+            "Antechamber",
+            "Bonsai Hillside",
+            //"Cargo Hold",
+            "Crossroads",
+            "Defense Perimeter",
+            "Farmstead",
+            "Ivory Pass",
+            "Lab Annex",
+            "Maintenance",
+            "Phase Gateway Central",
+            "Phase Gateway West",
+            "Secondary Power Grid",
+            "Shipyard",
+            "Supply Track",
+            "Underpass",
+            "Welcome Center",
+            "Wildflower Meadow", //end basic
             "Hydroponics" //?
     };
 
