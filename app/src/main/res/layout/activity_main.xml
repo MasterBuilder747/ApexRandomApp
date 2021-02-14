@@ -13,8 +13,8 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:contentDescription="@string/map_location_selection"
-        android:src="@drawable/kingscanyonzoom"
-        app:layout_constraintBottom_toTopOf="@+id/divider"
+        android:src="@drawable/worldsedgezoom"
+        app:layout_constraintBottom_toTopOf="@+id/divider2"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.482"
         tools:layout_editor_absoluteX="74dp" />
@@ -37,10 +37,19 @@
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginBottom="31dp"
+        android:layout_marginBottom="24dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintBottom_toBottomOf="@+id/characterLabel"
-        tools:layout_editor_absoluteX="25dp" />
+        tools:layout_editor_absoluteX="-28dp" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="36dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        tools:layout_editor_absoluteX="16dp" />
 
     <RadioGroup
         android:id="@+id/chooseMap"
@@ -54,19 +63,24 @@
         app:layout_constraintTop_toTopOf="@+id/divider"
         app:layout_constraintVertical_bias="0.636">
         <RadioButton
+            android:checked="true"
+            android:enabled="true"
             android:id="@+id/king"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true"
             android:onClick="checkButton"
             android:text="@string/king_s_canyon"/>
         <RadioButton
+            android:checked="false"
+            android:enabled="true"
             android:id="@+id/world"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="checkButton"
             android:text="@string/world_s_edge"/>
         <RadioButton
+            android:checked="false"
+            android:enabled="true"
             android:id="@+id/olympus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -84,6 +98,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/characterLabel2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/loot_tier"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintEnd_toStartOf="@+id/high_box"
+        app:layout_constraintHorizontal_bias="0.435"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/divider2"
+        app:layout_constraintVertical_bias="0.545" />
+
     <TextView
         android:id="@+id/characterOutput"
         android:layout_width="wrap_content"
@@ -127,7 +155,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/locationOutput" />
 
     <ImageView
         android:id="@+id/characterImg"
@@ -140,5 +169,40 @@
         app:layout_constraintStart_toEndOf="@+id/newGameButton"
         app:layout_constraintTop_toTopOf="@+id/divider"
         android:src="@drawable/defaultchoose" />
+
+    <CheckBox
+        android:id="@+id/high_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/high"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintEnd_toStartOf="@+id/mid_box"
+        app:layout_constraintHorizontal_bias="0.708"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/divider2"
+        app:layout_constraintVertical_bias="0.523" />
+    <CheckBox
+        android:id="@+id/mid_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mid"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.577"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/divider2"
+        app:layout_constraintVertical_bias="0.523" />
+
+    <CheckBox
+        android:id="@+id/basic_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/basic"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toEndOf="@+id/mid_box"
+        app:layout_constraintTop_toTopOf="@+id/divider2"
+        app:layout_constraintVertical_bias="0.523" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

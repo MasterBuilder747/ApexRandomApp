@@ -9,4 +9,8 @@
     <string name="world_s_edge">Worlds Edge</string>
     <string name="olympus">Olympus</string>
     <string name="shows_location_on_map">Shows location on map</string>
+    <string name="high">High</string>
+    <string name="mid">Mid</string>
+    <string name="basic">Basic</string>
+    <string name="loot_tier">Loot tier:</string>
 </resources>

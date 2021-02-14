@@ -3,22 +3,28 @@ package com.masterbuilder747.apexrandom;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.app.ActionBar;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    //from java implementation
-    String[] legends = {
+    final public static int HIGH = 2;
+    final public static int MID = 1;
+    final public static int BASIC = 0;
+
+    final public static int KINGS = 1;
+    final public static int WORLDS = 2;
+    final public static int OLYMPUS = 3;
+
+    static final String[] legends = {
             "Wraith",
             "Bangalore",
             "Gibraltar",
@@ -37,139 +43,147 @@ public class MainActivity extends AppCompatActivity {
             "Fuse" //s8
     };
 
-    //high tier loot unless stated
-    String[] map_kings = {
-            "Airbase", //start high
-            "Artillery Battery",
-            "Bunker Pass",
-            "Crashed Ship",
-            "Crash Site",
-            "Crypto's Map Room",
-            "High Desert",
-            "Interstellar Relay",
-            "Mirage Voyage",
-            "Offshore Rig",
-            "Repulsor",
-            "Runoff",
-            "Skull Salvage",
-            "Singh Labs Interior",
-            "Spotted Lakes",
-            "Swamps",
+    //map, (loot, location)
+    //locations contain the name and the x and y percentages
+    //static Map<Integer, HashMap<Integer, Location>> locations = new HashMap<>();
+
+    //name, x, y, lootLvl
+    static final Location[] map_kings = {
+            new Location("Airbase", HIGH), //start high
+            new Location("Artillery Battery", HIGH),
+            new Location("Bunker Pass", HIGH),
+            new Location("Crashed Ship", HIGH),
+            new Location("Crash Site", HIGH),
+            new Location("Crypto's Map Room", HIGH),
+            new Location("High Desert", HIGH),
+            new Location("Interstellar Relay", HIGH),
+            new Location("Mirage Voyage", HIGH),
+            new Location("Offshore Rig", HIGH),
+            new Location("Repulsor", HIGH),
+            new Location("Runoff", HIGH),
+            new Location("Skull Salvage", HIGH),
+            new Location("Singh Labs Interior", HIGH),
+            new Location("Spotted Lakes", HIGH),
+            new Location("Swamps", HIGH),
 //            "Terminal Station F-85",
 //            "Terminal Station L-19",
 //            "Terminal Station O-240",
 //            "Terminal Station W-73",
-            "The Pit",
-            "Watchtower North",
-            "Watchtower South",
-            "Water Treatment", //end high
-            "ARES Capacitor", //start mid
-            "Broken Coast Overlook",
-            "Cage",
-            "Capacitor Overlook",
-            "Creature Containment",
-            "Destroyed Cascades",
-            "Hillside Outpost",
-            "Lagoon Crossing",
-            "Marketplace",
-            "Octane's Gauntlet",
-            "River Center",
-            "Singh Labs",
+            new Location("The Pit", HIGH),
+            new Location("Watchtower North", HIGH),
+            new Location("Watchtower South", HIGH),
+            new Location("Water Treatment", HIGH),
+            new Location("Water Treatment", HIGH), //end high
+            new Location("ARES Capacitor", MID), //start mid
+            new Location("Broken Coast Overlook", MID),
+            new Location("Cage", MID),
+            new Location("Capacitor Overlook", MID),
+            new Location("Creature Containment", MID),
+            new Location("Destroyed Cascades", MID),
+            new Location("Hillside Outpost", MID),
+            new Location("Lagoon Crossing", MID),
+            new Location("Marketplace", MID),
+            new Location("Octane's Gauntlet", MID),
+            new Location("River Center", MID),
+            new Location("Singh Labs", MID),
 //            "Slum Lakes",
-            "Two Spines",
-            "Two Spines Outpost",
-            "Verdant Crossing", //end mid
-            "Artillery Underpass", //start basic
-            "Broken Coast",
-            "Broken Coast South",
-            "Cage Crossing",
-            "Capacitor Junction",
-            "Capacitor Tunnel",
-            "Caves",
-            "Crossroads",
-            "Destroyed Artillery Tunnel",
-            "Destroyed Bridges",
-            "East Settlement",
-            "Golden Sands",
-            "Hydro Dam",
-            "Hydro Tunnel",
-            "Offshore Rig Loading",
-            "Reclaimed Forest",
-            "Suspended Skull",
-            "Uncovered Bones" //end basic
+            new Location("Two Spines", MID),
+            new Location("Two Spines Outpost", MID),
+            new Location("Verdant Crossing", MID), //end mid
+            new Location("Artillery Underpass", BASIC), //start basic
+            new Location("Broken Coast", BASIC),
+            new Location("Broken Coast South", BASIC),
+            new Location("Cage Crossing", BASIC),
+            new Location("Capacitor Junction", BASIC),
+            new Location("Capacitor Tunnel", BASIC),
+            new Location("Caves", BASIC),
+            new Location("Crossroads", BASIC),
+            new Location("Destroyed Artillery Tunnel", BASIC),
+            new Location("Destroyed Bridges", BASIC),
+            new Location("East Settlement", BASIC),
+            new Location("Golden Sands", BASIC),
+            new Location("Hydro Dam", BASIC),
+            new Location("Hydro Tunnel", BASIC),
+            new Location("Offshore Rig Loading", BASIC),
+            new Location("Reclaimed Forest", BASIC),
+            new Location("Suspended Skull", BASIC),
+            new Location("Uncovered Bones", BASIC) //end basic
 //            "Waterfall",
 //            "The Farm",
 //            "River's End",
     };
-    String[] map_worlds = {
-            "Bloodhound's Trials", //start high
-            "Countdown",
-            "Fragment East",
-            "Harvester",
-            "Launch Site",
-            "Lava City",
-            "Lava Fissure",
-            "Overlook",
-            "Refinery",
-            "Staging",
-            "Skyhook",
-            "Sorting Factory",
-            "Survey Camp",
-            "Thermal Station",
-            "The Dome",
-            "The Epicenter",
-            "The Geyser",
-            "The Tree",
-            "The Train Yard", //end high
-            "Fragment West", //mid
-            "Spring's End", //mid
-            "Hill Valley", //basic
-            "The Bridge", //basic
-            "The Mining Pass", //basic
-            "The Rain Tunnel" //basic
+    static final Location[] map_worlds = {
+            new Location("Bloodhound's Trials", HIGH), //start high
+            new Location("Countdown", HIGH),
+            new Location("Fragment East", HIGH),
+            new Location("Harvester", HIGH),
+            new Location("Launch Site", HIGH),
+            new Location("Lava City", HIGH),
+            new Location("Lava Fissure", HIGH),
+            new Location("Overlook", HIGH),
+            new Location("Refinery", HIGH),
+            new Location("Staging", HIGH),
+            new Location("Skyhook", HIGH),
+            new Location("Sorting Factory", HIGH),
+            new Location("Survey Camp", HIGH),
+            new Location("Thermal Station", HIGH),
+            new Location("The Dome", HIGH),
+            new Location("The Epicenter", HIGH),
+            new Location("The Geyser", HIGH),
+            new Location("The Tree", HIGH),
+            new Location("The Train Yard", HIGH), //end high
+            new Location("Fragment West", MID), //mid
+            new Location("Spring's End", MID), //mid
+            new Location("Hill Valley", BASIC), //basic
+            new Location("The Bridge", BASIC), //basic
+            new Location("The Mining Pass", BASIC), //basic
+            new Location("The Rain Tunnel", BASIC) //basic
     };
-    String[] map_olympus = {
-            "Autumn Estates", //start high
-            "Arcadia Supercarrier",
-            "Docks",
-            "Elysium",
-            "Energy Depot",
-            "Orbital Cannon Test Site",
-            "Pathfinder's Fight Night",
-            "Rift Aftermath",
-            "Research Basin",
-            "The Reverie Lounge", //end high
-            "Bonsai Plaza", //start mid
-            "Central Turbine",
-            "Grow Towers",
-            "Golden Gardens",
-            "Hammond Labs",
-            "Primary Power Grid",
-            "Solar Array",
-            "Velvet Oasis", //end mid
-            "Agriculture Entry", //start basic
-            "Antechamber",
-            "Bonsai Hillside",
+    static final Location[] map_olympus = {
+            new Location("Autumn Estates", HIGH), //start high
+            new Location("Arcadia Supercarrier", HIGH),
+            new Location("Docks", HIGH),
+            new Location("Elysium", HIGH),
+            new Location("Energy Depot", HIGH),
+            new Location("Orbital Cannon Test Site", HIGH),
+            new Location("Pathfinder's Fight Night", HIGH),
+            new Location("Rift Aftermath", HIGH),
+            new Location("Research Basin", HIGH),
+            new Location("The Reverie Lounge", HIGH), //end high
+            new Location("Bonsai Plaza", MID), //start mid
+            new Location("Central Turbine", MID),
+            new Location("Grow Towers", MID),
+            new Location("Golden Gardens", MID),
+            new Location("Hammond Labs", MID),
+            new Location("Primary Power Grid", MID),
+            new Location("Solar Array", MID),
+            new Location("Velvet Oasis", MID), //end mid
+            new Location("Agriculture Entry", BASIC), //start basic
+            new Location("Antechamber", BASIC),
+            new Location("Bonsai Hillside", BASIC),
             //"Cargo Hold",
-            "Crossroads",
-            "Defense Perimeter",
-            "Farmstead",
-            "Ivory Pass",
-            "Lab Annex",
-            "Maintenance",
-            "Phase Gateway Central",
-            "Phase Gateway West",
-            "Secondary Power Grid",
-            "Shipyard",
-            "Supply Track",
-            "Underpass",
-            "Welcome Center",
-            "Wildflower Meadow", //end basic
-            "Hydroponics" //?
+            new Location("Crossroads", BASIC),
+            new Location("Defense Perimeter", BASIC),
+            new Location("Farmstead", BASIC),
+            new Location("Ivory Pass", BASIC),
+            new Location("Lab Annex", BASIC),
+            new Location("Maintenance", BASIC),
+            new Location("Phase Gateway Central", BASIC),
+            new Location("Phase Gateway West", BASIC),
+            new Location("Secondary Power Grid", BASIC),
+            new Location("Shipyard", BASIC),
+            new Location("Supply Track", BASIC),
+            new Location("Underpass", BASIC),
+            new Location("Welcome Center", BASIC),
+            new Location("Wildflower Meadow", BASIC), //end basic
+            new Location("Hydroponics") //?
     };
 
+    //the final random list once filtering is complete
+    static Location[] locations;
+
     //returns a random item from a given array
-    public static String random(String[] a) {
+    public static <T> T random(T[] a) {
         return a[(int)(Math.random() * a.length)];
     }
 
@@ -185,6 +199,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         //get resources
         character = findViewById(R.id.characterOutput);
@@ -203,7 +218,6 @@ public class MainActivity extends AppCompatActivity {
         radioGroup = findViewById(R.id.chooseMap);
         Button button = findViewById(R.id.newGameButton);
         button.setOnClickListener(v -> {
-
             //random map location process
             //check the selected radio button, returns an id
             int radioID = radioGroup.getCheckedRadioButtonId();
@@ -211,18 +225,16 @@ public class MainActivity extends AppCompatActivity {
             String map = radioButton.getText().toString();
             if (map.contains("King")) {
                 //Toast.makeText(this, "King", Toast.LENGTH_SHORT).show();
-                location.setText(random(map_kings));
-
+                Location k = random(map_kings);
+                location.setText(k.name);
                 ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) markImg.getLayoutParams();
-                params.horizontalBias = 0.2f;
-                params.verticalBias = 0.2f;
+                params.horizontalBias = (float)k.x;
+                params.verticalBias = (float)k.y;
                 markImg.setLayoutParams(params);
             } else if (map.contains("World")) {
-                //Toast.makeText(this, "World", Toast.LENGTH_SHORT).show();
-                location.setText(random(map_worlds));
+
             } else {
-                //Toast.makeText(this, "Olympus", Toast.LENGTH_SHORT).show();
-                location.setText(random(map_olympus));
+
             }
 
             //random character process
