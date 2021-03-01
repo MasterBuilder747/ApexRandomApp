@@ -6,11 +6,14 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,10 +22,6 @@ public class MainActivity extends AppCompatActivity {
     final public static int HIGH = 2;
     final public static int MID = 1;
     final public static int BASIC = 0;
-
-    final public static int KINGS = 1;
-    final public static int WORLDS = 2;
-    final public static int OLYMPUS = 3;
 
     static final String[] legends = {
             "Wraith",
@@ -194,56 +193,84 @@ public class MainActivity extends AppCompatActivity {
     ImageView charImg; //image outputs
     ImageView mapImg;
     ImageView markImg;
+    CheckBox highChk; //check boxes
+    CheckBox midChk;
+    CheckBox basicChk;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         //get resources
+        //radio buttons
+        radioGroup = findViewById(R.id.chooseMap);
+        Button button = findViewById(R.id.newGameButton);
+        //text views
         character = findViewById(R.id.characterOutput);
         location = findViewById(R.id.locationOutput);
-
+        //image views
         charImg = findViewById(R.id.characterImg);
         mapImg = findViewById(R.id.mapImg);
         markImg = findViewById(R.id.markerImg);
+        //check boxes
+        highChk = findViewById(R.id.high_box);
+        midChk = findViewById(R.id.mid_box);
+        basicChk = findViewById(R.id.basic_box);
 
         //update the imageViews to show default images
         mapImg.setImageResource(R.drawable.kingscanyonzoom);
         charImg.setImageResource(R.drawable.defaultchoose);
         markImg.setImageResource(R.drawable.marker);
 
-        //button action
-        radioGroup = findViewById(R.id.chooseMap);
-        Button button = findViewById(R.id.newGameButton);
         button.setOnClickListener(v -> {
             //random map location process
             //check the selected radio button, returns an id
-            int radioID = radioGroup.getCheckedRadioButtonId();
-            radioButton = findViewById(radioID);
-            String map = radioButton.getText().toString();
-            if (map.contains("King")) {
-                //Toast.makeText(this, "King", Toast.LENGTH_SHORT).show();
-                Location k = random(map_kings);
+            if (!(!highChk.isChecked() && !midChk.isChecked() && !basicChk.isChecked())) {
+                int radioID = radioGroup.getCheckedRadioButtonId();
+                radioButton = findViewById(radioID);
+                String map = radioButton.getText().toString();
+                Location k;
+                if (map.contains("King")) {
+                    //Toast.makeText(this, "King", Toast.LENGTH_SHORT).show();
+                    k = randomLocation(map_kings, highChk.isChecked(), midChk.isChecked(), basicChk.isChecked());
+                } else if (map.contains("World")) {
+                    k = randomLocation(map_worlds, highChk.isChecked(), midChk.isChecked(), basicChk.isChecked());
+                } else {
+                    k = randomLocation(map_olympus, highChk.isChecked(), midChk.isChecked(), basicChk.isChecked());
+                }
+                markImg.setVisibility(View.VISIBLE);
                 location.setText(k.name);
                 ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) markImg.getLayoutParams();
-                params.horizontalBias = (float)k.x;
-                params.verticalBias = (float)k.y;
+                params.horizontalBias = (float) k.x;
+                params.verticalBias = (float) k.y;
                 markImg.setLayoutParams(params);
-            } else if (map.contains("World")) {
 
+                //random character process
+                character.setText(random(legends));
+                String leg = character.getText().toString().toLowerCase();
+                int id = getResources().getIdentifier(leg, "drawable", getPackageName());
+                charImg.setImageResource(id);
             } else {
-
+                //Use Alert dialog windows here
+                Toast.makeText(this, "Randomization failed. At least one loot tier must be selected.", Toast.LENGTH_SHORT).show();
             }
-
-            //random character process
-            character.setText(random(legends));
-            String leg = character.getText().toString().toLowerCase();
-            int id = getResources().getIdentifier(leg, "drawable", getPackageName());
-            charImg.setImageResource(id);
-
         });
+    }
+
+    public static Location randomLocation(Location[] a, boolean high, boolean mid, boolean basic) {
+        Location output;
+        Location[] AList;
+        ArrayList<Location> BList = new ArrayList<>();
+        for (Location l : a) {
+            if (high && l.loot == HIGH || mid && l.loot == MID || basic && l.loot == BASIC) {
+                BList.add(l);
+            }
+        }
+        AList = new Location[BList.size()];
+        AList = BList.toArray(AList);
+        output = random(AList);
+        return output;
     }
 
     public void checkButton(View v) {
