@@ -14,8 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -98,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
             new Location("Capacitor Junction", BASIC, 0.765, 0.248),
             new Location("Capacitor Tunnel", BASIC, 0.894, 0.462),
             new Location("Caves", BASIC, 0.504, 0.664),
-            new Location("Crossroads", BASIC, 0.492, 0.497), //PLEASE CONFIRM, NOT CORRECT LOCATION
+            new Location("Crossroads", BASIC), //PLEASE CONFIRM, NOT CORRECT LOCATION
             new Location("Destroyed Artillery Tunnel", BASIC, 0.424, 0.101),
             new Location("Destroyed Bridges", BASIC, 0.601, 0.604),
             new Location("East Settlement", BASIC, 0.444, 0.825),
@@ -112,79 +110,82 @@ public class MainActivity extends AppCompatActivity {
     };
 
     static final Location[] map_worlds = {
-            new Location("Bloodhound's Trials", HIGH),
-            new Location("Countdown", HIGH),
-            new Location("Fragment East", HIGH),
-            new Location("Harvester", HIGH),
-            new Location("Launch Site", HIGH),
-            new Location("Lava City", HIGH),
-            new Location("Lava Fissure", HIGH),
-            new Location("Overlook", HIGH),
-            new Location("Refinery", HIGH),
-            new Location("Staging", HIGH),
-            new Location("Skyhook", HIGH),
-            new Location("Sorting Factory", HIGH),
-            new Location("Survey Camp", HIGH),
-            new Location("Thermal Station", HIGH),
-            new Location("The Dome", HIGH),
-            new Location("The Epicenter", HIGH),
-            new Location("The Geyser", HIGH),
-            new Location("The Tree", HIGH),
-            new Location("The Train Yard", HIGH),
+            new Location("Bloodhound's Trials", HIGH, 0.073, 0.13),
+            new Location("Countdown", HIGH, 0.167, 0.29),
+            new Location("Fragment East", HIGH, 0.686, 0.393),
+            new Location("Harvester", HIGH, 0.44, 0.62),
+            new Location("Launch Site", HIGH, 0.563, 0.939),
+            new Location("Lava City", HIGH, 0.9, 0.847),
+            new Location("Lava Fissure", HIGH, 0.029, 0.323),
+            new Location("Overlook", HIGH, 1.0, 0.343),
+            new Location("Refinery", HIGH, 0.791, 0.08),
+            new Location("Staging", HIGH, 0.208, 0.571),
+            new Location("Skyhook", HIGH, 0.234, 0.147),
+            new Location("Sorting Factory", HIGH, 0.586, 0.754),
+            new Location("Survey Camp", HIGH, 0.48, 0.2),
+            new Location("Thermal Station", HIGH, 0.158, 0.75),
+            new Location("The Dome", HIGH, 0.8, 1.0),
+            new Location("The Epicenter", HIGH, 0.686, 0.192),
+            new Location("The Geyser", HIGH, 0.847, 0.604),
+            new Location("The Tree", HIGH, 0.363, 0.872),
+            new Location("The Train Yard", HIGH, 0.299, 0.426),
 
-            new Location("Fragment West", MID),
-            new Location("Spring's End", MID),
+            new Location("Fragment West", MID, 0.56, 0.333),
+            new Location("Spring's End", MID, 0.049, 0.498),
 
-            new Location("Hill Valley", BASIC),
-            new Location("The Bridge", BASIC),
-            new Location("The Mining Pass", BASIC),
-            new Location("The Rain Tunnel", BASIC)
+            new Location("Hill Valley", BASIC, 0.299, 0.318),
+            new Location("The Bridge", BASIC, 0.276, 0.75),
+            new Location("The Mining Pass", BASIC, 0.316, 0.511),
+            new Location("The Rain Tunnel", BASIC, 0.478, 0.077)
     };
 
     static final Location[] map_olympus = {
-            new Location("Autumn Estates", HIGH),
-            new Location("Arcadia Supercarrier", HIGH),
-            new Location("Docks", HIGH),
-            new Location("Elysium", HIGH),
-            new Location("Energy Depot", HIGH),
-            new Location("Hydroponics", HIGH),
-            new Location("Orbital Cannon Test Site", HIGH),
-            new Location("Pathfinder's Fight Night", HIGH),
-            new Location("Rift Aftermath", HIGH),
-            new Location("Research Basin", HIGH),
-            new Location("The Reverie Lounge", HIGH),
+            new Location("Autumn Estates", HIGH, 0.265, 0.529),
+            new Location("Arcadia Supercarrier", HIGH, 0.25, 0.201),
+            new Location("Docks", HIGH, 0.343, 0.035),
+            new Location("Elysium", HIGH, 0.0, 0.686),
+            new Location("Energy Depot", HIGH, 0.653, 0.39),
+            new Location("Hydroponics", HIGH, 0.093, 0.772),
+            new Location("Orbital Cannon Test Site", HIGH, 0.953, 0.831),
+            new Location("Pathfinder's Fight Night", HIGH, 0.366, 0.198),
+            new Location("Rift Aftermath", HIGH, 0.686, 0.213),
+            new Location("Research Basin", HIGH, 0.1, 0.52), //PLEASE CONFIRM, NOT CORRECT LOCATION
+            new Location("The Reverie Lounge", HIGH, 0.504, 0.973),
 
-            new Location("Bonsai Plaza", MID),
-            new Location("Central Turbine", MID),
-            new Location("Grow Towers", MID),
-            new Location("Golden Gardens", MID),
-            new Location("Hammond Labs", MID),
-            new Location("Primary Power Grid", MID),
-            new Location("Solar Array", MID),
-            new Location("Velvet Oasis", MID),
+            new Location("Bonsai Plaza", MID, 0.57, 0.985),
+            new Location("Central Turbine", MID, 0.44, 0.36),
+            new Location("Grow Towers", MID, 0.859, 0.582),
+            new Location("Golden Gardens", MID, 0.879, 0.396),
+            new Location("Hammond Labs", MID, 0.55, 0.559),
+            new Location("Primary Power Grid", MID), //PLEASE CONFIRM, NOT CORRECT LOCATION
+            new Location("Solar Array", MID, 0.63, 0.736), //PLEASE CONFIRM, NOT CORRECT LOCATION (0.521, 0.204)?
+            new Location("Velvet Oasis", MID, 0.1, 0.328),
 
-            new Location("Agriculture Entry", BASIC),
-            new Location("Antechamber", BASIC),
-            new Location("Bonsai Hillside", BASIC),
-            new Location("Crossroads", BASIC),
-            new Location("Defense Perimeter", BASIC),
-            new Location("Farmstead", BASIC),
-            new Location("Ivory Pass", BASIC),
-            new Location("Lab Annex", BASIC),
-            new Location("Maintenance", BASIC),
-            new Location("Phase Gateway Central", BASIC),
-            new Location("Phase Gateway West", BASIC),
-            new Location("Secondary Power Grid", BASIC),
-            new Location("Shipyard", BASIC),
-            new Location("Supply Track", BASIC),
-            new Location("Underpass", BASIC),
-            new Location("Welcome Center", BASIC),
-            new Location("Wildflower Meadow", BASIC),
+            new Location("Agriculture Entry", BASIC, 0.158, 0.71),
+            new Location("Antechamber", BASIC, 0.521, 0.328),
+            new Location("Bonsai Hillside", BASIC, 0.54, 0.86),
+            new Location("Crossroads", BASIC, 0.686, 0.825),
+            new Location("Defense Perimeter", BASIC, 0.815, 0.834),
+            new Location("Farmstead", BASIC, 0.046, 0.609),
+            new Location("Ivory Pass", BASIC, 0.824, 0.689),
+            new Location("Lab Annex", BASIC, 0.563, 0.452), //PLEASE CONFIRM, NOT CORRECT LOCATION
+            new Location("Maintenance", BASIC, 0.48, 0.431),
+            new Location("Phase Gateway Central", BASIC, 0.686, 0.582),
+            new Location("Phase Gateway West", BASIC, 0.192, 0.636),
+            new Location("Secondary Power Grid", BASIC), //PLEASE CONFIRM, NOT CORRECT LOCATION
+            new Location("Shipyard", BASIC, 0.563, 0.071),
+            new Location("Supply Track", BASIC, 0.621, 0.286),
+            new Location("Underpass", BASIC), //PLEASE CONFIRM, NOT CORRECT LOCATION
+            new Location("Welcome Center", BASIC), //PLEASE CONFIRM, NOT CORRECT LOCATION
+            new Location("Wildflower Meadow", BASIC, 0.346, 0.511),
     };
 
     //returns a random item from a given array
     public static <T> T random(T[] a) {
         return a[(int)(Math.random() * a.length)];
+    }
+    public static Location random(ArrayList<Location> a) {
+        return a.get((int)(Math.random() * a.size()));
     }
 
     RadioGroup radioGroup; //the group of radioButtons, there is only 1
@@ -260,18 +261,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static Location randomLocation(Location[] a, boolean high, boolean mid, boolean basic) {
-        Location output;
-        Location[] AList;
         ArrayList<Location> BList = new ArrayList<>();
         for (Location l : a) {
             if (high && l.loot == HIGH || mid && l.loot == MID || basic && l.loot == BASIC) {
                 BList.add(l);
             }
         }
-        AList = new Location[BList.size()];
-        AList = BList.toArray(AList);
-        output = random(AList);
-        return output;
+        return random(BList);
     }
 
     public void checkButton(View v) {
