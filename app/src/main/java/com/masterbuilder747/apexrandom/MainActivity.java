@@ -46,73 +46,73 @@ public class MainActivity extends AppCompatActivity {
     //locations contain the name and the x and y percentages
     //static Map<Integer, HashMap<Integer, Location>> locations = new HashMap<>();
 
-    //name, x, y, lootLvl
+    //name, lootLvl, x, y
+    // 0 <= x <= 1
+    // 0 <= y <= 1
     static final Location[] map_kings = {
-            new Location("Airbase", HIGH), //start high
-            new Location("Artillery Battery", HIGH),
-            new Location("Bunker Pass", HIGH),
-            new Location("Crashed Ship", HIGH),
-            new Location("Crash Site", HIGH),
-            new Location("Crypto's Map Room", HIGH),
-            new Location("High Desert", HIGH),
-            new Location("Interstellar Relay", HIGH),
-            new Location("Mirage Voyage", HIGH),
-            new Location("Offshore Rig", HIGH),
-            new Location("Repulsor", HIGH),
-            new Location("Runoff", HIGH),
-            new Location("Skull Salvage", HIGH),
-            new Location("Singh Labs Interior", HIGH),
-            new Location("Spotted Lakes", HIGH),
-            new Location("Swamps", HIGH),
+            new Location("Airbase", HIGH, 0.029, 0.586),
+            new Location("Artillery Battery", HIGH, 0.521, 0.095),
+            new Location("Bunker Pass", HIGH, 0.351, 0.485),
+            new Location("Caustic Treatment", HIGH, 0.586, 1.0),
+            new Location("Crashed Ship", HIGH, 0.316, 0.0),
+            new Location("Crash Site", HIGH, 0.410, 0.0),
+            new Location("Crypto's Map Room", HIGH, 0.847, 0.921),
+            new Location("High Desert", HIGH, 0.164, 0.526),
+            new Location("Interstellar Relay", HIGH, 0.859, 0.182),
+            //new Location("Mirage Voyage", HIGH, 0.272, 0.881),
+            new Location("Offshore Rig", HIGH, 1.0, 0.228),
+            new Location("Repulsor", HIGH, 0.862, 0.8),
+            new Location("Runoff", HIGH, 0.049, 0.39),
+            new Location("Skull Salvage", HIGH, 0.363, 0.791),
+            new Location("Singh Labs Interior", HIGH, 0.891, 0.468),
+            new Location("Swamps", HIGH, 1.0, 0.638),
+            new Location("The Pit", HIGH, 0.187, 0.317),
+            new Location("Watchtower North", HIGH, 0.457, 0.219),
+            new Location("Watchtower South", HIGH, 0.686, 0.841),
 //            "Terminal Station F-85",
 //            "Terminal Station L-19",
 //            "Terminal Station O-240",
 //            "Terminal Station W-73",
-            new Location("The Pit", HIGH),
-            new Location("Watchtower North", HIGH),
-            new Location("Watchtower South", HIGH),
-            new Location("Water Treatment", HIGH),
-            new Location("Water Treatment", HIGH), //end high
-            new Location("ARES Capacitor", MID), //start mid
-            new Location("Broken Coast Overlook", MID),
-            new Location("Cage", MID),
-            new Location("Capacitor Overlook", MID),
-            new Location("Creature Containment", MID),
-            new Location("Destroyed Cascades", MID),
-            new Location("Hillside Outpost", MID),
-            new Location("Lagoon Crossing", MID),
-            new Location("Marketplace", MID),
-            new Location("Octane's Gauntlet", MID),
-            new Location("River Center", MID),
-            new Location("Singh Labs", MID),
-//            "Slum Lakes",
-            new Location("Two Spines", MID),
-            new Location("Two Spines Outpost", MID),
-            new Location("Verdant Crossing", MID), //end mid
-            new Location("Artillery Underpass", BASIC), //start basic
-            new Location("Broken Coast", BASIC),
-            new Location("Broken Coast South", BASIC),
-            new Location("Cage Crossing", BASIC),
-            new Location("Capacitor Junction", BASIC),
-            new Location("Capacitor Tunnel", BASIC),
-            new Location("Caves", BASIC),
-            new Location("Crossroads", BASIC),
-            new Location("Destroyed Artillery Tunnel", BASIC),
-            new Location("Destroyed Bridges", BASIC),
-            new Location("East Settlement", BASIC),
-            new Location("Golden Sands", BASIC),
-            new Location("Hydro Dam", BASIC),
-            new Location("Hydro Tunnel", BASIC),
-            new Location("Offshore Rig Loading", BASIC),
-            new Location("Reclaimed Forest", BASIC),
-            new Location("Suspended Skull", BASIC),
-            new Location("Uncovered Bones", BASIC) //end basic
-//            "Waterfall",
-//            "The Farm",
-//            "River's End",
+
+            new Location("ARES Capacitor", MID, 0.859, 0.378),
+            new Location("Broken Coast Overlook", MID, 0.208, 0.696),
+            new Location("Cage", MID, 0.697, 0.583),
+            new Location("Capacitor Overlook", MID, 0.765, 0.41),
+            new Location("Creature Containment", MID, 0.369, 0.28),
+            new Location("Destroyed Cascades", MID,  0.29, 0.372),
+            new Location("Hillside Outpost", MID, 0.521, 0.404),
+            new Location("Lagoon Crossing", MID, 0.434, 0.369),
+            new Location("Marketplace", MID, 0.492, 0.734),
+            new Location("Octane's Gauntlet", MID, 0.114, 0.763),
+            new Location("River Center", MID, 0.392, 0.488),
+            new Location("Singh Labs", MID, 0.891, 0.526),
+            new Location("Spotted Lake", MID, 0.12, 0.193),
+            new Location("Two Spines", MID, 0.686, 0.312),
+            new Location("Two Spines Outpost", MID, 0.588, 0.416),
+            new Location("Verdant Crossing", MID, 0.565, 0.881),
+
+            new Location("Artillery Underpass", BASIC, 0.51, 0.164),
+            new Location("Broken Coast", BASIC, 0.334, 0.69),
+            new Location("Broken Coast South", BASIC, 0.492, 0.973),
+            new Location("Cage Crossing", BASIC, 0.724, 0.499),
+            new Location("Capacitor Junction", BASIC, 0.765, 0.248),
+            new Location("Capacitor Tunnel", BASIC, 0.894, 0.462),
+            new Location("Caves", BASIC, 0.504, 0.664),
+            new Location("Crossroads", BASIC, 0.492, 0.497), //PLEASE CONFIRM, NOT CORRECT LOCATION
+            new Location("Destroyed Artillery Tunnel", BASIC, 0.424, 0.101),
+            new Location("Destroyed Bridges", BASIC, 0.601, 0.604),
+            new Location("East Settlement", BASIC, 0.444, 0.825),
+            new Location("Golden Sands", BASIC, 0.299, 0.592),
+            new Location("Hydro Dam", BASIC, 0.859, 0.664),
+            new Location("Hydro Tunnel", BASIC, 0.768, 0.661),
+            new Location("Offshore Rig Loading", BASIC, 1.0, 0.361),
+            new Location("Reclaimed Forest", BASIC, 0.953, 0.598),
+            new Location("Suspended Skull", BASIC, 0.29, 0.783),
+            new Location("Uncovered Bones", BASIC, 0.114, 0.294)
     };
+
     static final Location[] map_worlds = {
-            new Location("Bloodhound's Trials", HIGH), //start high
+            new Location("Bloodhound's Trials", HIGH),
             new Location("Countdown", HIGH),
             new Location("Fragment East", HIGH),
             new Location("Harvester", HIGH),
@@ -130,37 +130,42 @@ public class MainActivity extends AppCompatActivity {
             new Location("The Epicenter", HIGH),
             new Location("The Geyser", HIGH),
             new Location("The Tree", HIGH),
-            new Location("The Train Yard", HIGH), //end high
-            new Location("Fragment West", MID), //mid
-            new Location("Spring's End", MID), //mid
-            new Location("Hill Valley", BASIC), //basic
-            new Location("The Bridge", BASIC), //basic
-            new Location("The Mining Pass", BASIC), //basic
-            new Location("The Rain Tunnel", BASIC) //basic
+            new Location("The Train Yard", HIGH),
+
+            new Location("Fragment West", MID),
+            new Location("Spring's End", MID),
+
+            new Location("Hill Valley", BASIC),
+            new Location("The Bridge", BASIC),
+            new Location("The Mining Pass", BASIC),
+            new Location("The Rain Tunnel", BASIC)
     };
+
     static final Location[] map_olympus = {
-            new Location("Autumn Estates", HIGH), //start high
+            new Location("Autumn Estates", HIGH),
             new Location("Arcadia Supercarrier", HIGH),
             new Location("Docks", HIGH),
             new Location("Elysium", HIGH),
             new Location("Energy Depot", HIGH),
+            new Location("Hydroponics", HIGH),
             new Location("Orbital Cannon Test Site", HIGH),
             new Location("Pathfinder's Fight Night", HIGH),
             new Location("Rift Aftermath", HIGH),
             new Location("Research Basin", HIGH),
-            new Location("The Reverie Lounge", HIGH), //end high
-            new Location("Bonsai Plaza", MID), //start mid
+            new Location("The Reverie Lounge", HIGH),
+
+            new Location("Bonsai Plaza", MID),
             new Location("Central Turbine", MID),
             new Location("Grow Towers", MID),
             new Location("Golden Gardens", MID),
             new Location("Hammond Labs", MID),
             new Location("Primary Power Grid", MID),
             new Location("Solar Array", MID),
-            new Location("Velvet Oasis", MID), //end mid
-            new Location("Agriculture Entry", BASIC), //start basic
+            new Location("Velvet Oasis", MID),
+
+            new Location("Agriculture Entry", BASIC),
             new Location("Antechamber", BASIC),
             new Location("Bonsai Hillside", BASIC),
-            //"Cargo Hold",
             new Location("Crossroads", BASIC),
             new Location("Defense Perimeter", BASIC),
             new Location("Farmstead", BASIC),
@@ -174,12 +179,8 @@ public class MainActivity extends AppCompatActivity {
             new Location("Supply Track", BASIC),
             new Location("Underpass", BASIC),
             new Location("Welcome Center", BASIC),
-            new Location("Wildflower Meadow", BASIC), //end basic
-            new Location("Hydroponics") //?
+            new Location("Wildflower Meadow", BASIC),
     };
-
-    //the final random list once filtering is complete
-    static Location[] locations;
 
     //returns a random item from a given array
     public static <T> T random(T[] a) {
