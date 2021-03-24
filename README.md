@@ -1,4 +1,5 @@
-# ApexRandomApp
+
+![Logo_small](https://user-images.githubusercontent.com/22829567/112383198-0cae2380-8caa-11eb-97f7-aa0939a77628.png)
 
 This is my first Android App! It displays a random character and location (depending on the RadioButton setting).
 
