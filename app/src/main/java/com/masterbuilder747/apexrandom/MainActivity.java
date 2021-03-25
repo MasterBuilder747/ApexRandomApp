@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
             "Rampart", //s6
             "Horizon", //s7
             "Fuse" //s8
+            //Valk? //s9
     };
 
     //map, (loot, location)
@@ -45,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
     //static Map<Integer, HashMap<Integer, Location>> locations = new HashMap<>();
 
     //name, lootLvl, x, y
-    // 0 <= x <= 1
-    // 0 <= y <= 1
+    // 0.0 <= x <= 1.0
+    // 0.0 <= y <= 1.0
     static final Location[] map_kings = {
             new Location("Airbase", HIGH, 0.029, 0.586),
             new Location("Artillery Battery", HIGH, 0.521, 0.095),
@@ -92,11 +93,11 @@ public class MainActivity extends AppCompatActivity {
             new Location("Artillery Underpass", BASIC, 0.51, 0.164),
             new Location("Broken Coast", BASIC, 0.334, 0.69),
             new Location("Broken Coast South", BASIC, 0.492, 0.973),
-            new Location("Cage Crossing", BASIC, 0.724, 0.499),
+            new Location("Cage Crossing", BASIC, 0.601, 0.569),
             new Location("Capacitor Junction", BASIC, 0.765, 0.248),
             new Location("Capacitor Tunnel", BASIC, 0.894, 0.462),
             new Location("Caves", BASIC, 0.504, 0.664),
-            new Location("Crossroads", BASIC), //PLEASE CONFIRM, NOT CORRECT LOCATION
+            new Location("Crossroads", BASIC, 0.194, 0.687),
             new Location("Destroyed Artillery Tunnel", BASIC, 0.424, 0.101),
             new Location("Destroyed Bridges", BASIC, 0.601, 0.604),
             new Location("East Settlement", BASIC, 0.444, 0.825),
