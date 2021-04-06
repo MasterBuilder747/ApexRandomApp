@@ -1,7 +1,7 @@
 
 ![Logo_small](https://user-images.githubusercontent.com/22829567/112383198-0cae2380-8caa-11eb-97f7-aa0939a77628.png)
 
-This is my first Android App! It displays a random character and location (depending on the RadioButton setting).
+The app displays a random character and location. Locations can be filtered by their loot type (High, Mid, Basic) with checkmarks.
 
 1. Download the APK here (locations on the map still need to be implemented) ~20MB size, Requires Android 5.0 or greater -> [v0.5](https://drive.google.com/file/d/17B06ULEWIIuad656IZpIaNigWkqe4Moy/view?usp=sharing)
 
