@@ -1,7 +1,7 @@
 
 ![Logo_small](https://user-images.githubusercontent.com/22829567/112383198-0cae2380-8caa-11eb-97f7-aa0939a77628.png)
 
-The app displays a random character and location. Locations can be filtered by their loot type (High, Mid, Basic) with checkmarks. All maps and characters are supported, and updated as the game updates every season.
+The app displays a random character and location. Locations can be filtered by their loot type (High, Mid, Basic) with checkmarks. All characters and locations on all three maps are supported. The app updates as the game updates every season.
 
 1. Download the APK here (locations on the map still need to be implemented) ~20MB size, Requires Android 5.0 or greater -> [v0.5](https://drive.google.com/file/d/17B06ULEWIIuad656IZpIaNigWkqe4Moy/view?usp=sharing)
 
