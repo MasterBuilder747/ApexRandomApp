@@ -3,6 +3,8 @@ package com.masterbuilder747.apexrandom;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,25 +23,10 @@ public class MainActivity extends AppCompatActivity {
     final public static int MID = 1;
     final public static int BASIC = 0;
 
-    static final String[] legends = {
-            "Wraith",
-            "Bangalore",
-            "Gibraltar",
-            "Lifeline",
-            "Pathfinder",
-            "Bloodhound",
-            "Mirage",
-            "Caustic",
-            "Octane", //s1
-            "Wattson", //s2
-            "Crypto", //s3
-            "Revenant", //s4
-            "Loba", //s5
-            "Rampart", //s6
-            "Horizon", //s7
-            "Fuse" //s8
-            //Valk? //s9
-    };
+    ArrayList<String> legSelection = new ArrayList<>();
+    public ArrayList<String> getLegSelection() {
+        return legSelection;
+    }
 
     //map, (loot, location)
     //locations contain the name and the x and y percentages
@@ -150,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
             new Location("Orbital Cannon Test Site", HIGH, 0.953, 0.831),
             new Location("Pathfinder's Fight Night", HIGH, 0.366, 0.198),
             new Location("Rift Aftermath", HIGH, 0.686, 0.213),
-            new Location("Research Basin", HIGH, 0.1, 0.52), //PLEASE CONFIRM, NOT CORRECT LOCATION
+            new Location("Research Basin", HIGH, 0.504, 0.47),
             new Location("The Reverie Lounge", HIGH, 0.504, 0.973),
 
             new Location("Bonsai Plaza", MID, 0.57, 0.985),
@@ -158,8 +145,9 @@ public class MainActivity extends AppCompatActivity {
             new Location("Grow Towers", MID, 0.859, 0.582),
             new Location("Golden Gardens", MID, 0.879, 0.396),
             new Location("Hammond Labs", MID, 0.55, 0.559),
-            new Location("Primary Power Grid", MID), //PLEASE CONFIRM, NOT CORRECT LOCATION
-            new Location("Solar Array", MID, 0.63, 0.736), //PLEASE CONFIRM, NOT CORRECT LOCATION (0.521, 0.204)?
+            new Location("Primary Power Grid", MID, 0.521, 0.204),
+            new Location("Power Station East", MID, 1.0, 0.292),
+            new Location("Solar Array", MID, 0.63, 0.736),
             new Location("Velvet Oasis", MID, 0.1, 0.328),
 
             new Location("Agriculture Entry", BASIC, 0.158, 0.71),
@@ -169,23 +157,22 @@ public class MainActivity extends AppCompatActivity {
             new Location("Defense Perimeter", BASIC, 0.815, 0.834),
             new Location("Farmstead", BASIC, 0.046, 0.609),
             new Location("Ivory Pass", BASIC, 0.824, 0.689),
-            new Location("Lab Annex", BASIC, 0.563, 0.452), //PLEASE CONFIRM, NOT CORRECT LOCATION
+            new Location("Lab Annex", BASIC, 0.392, 0.573),
+            new Location("Landing Pier", BASIC, 0.434, 0.0),
             new Location("Maintenance", BASIC, 0.48, 0.431),
+            new Location("Oasis Villa", BASIC, 0.265, 0.35),
             new Location("Phase Gateway Central", BASIC, 0.686, 0.582),
             new Location("Phase Gateway West", BASIC, 0.192, 0.636),
-            new Location("Secondary Power Grid", BASIC), //PLEASE CONFIRM, NOT CORRECT LOCATION
+            new Location("Secondary Power Grid", BASIC, 0.574, 0.068),
             new Location("Shipyard", BASIC, 0.563, 0.071),
             new Location("Supply Track", BASIC, 0.621, 0.286),
-            new Location("Underpass", BASIC), //PLEASE CONFIRM, NOT CORRECT LOCATION
-            new Location("Welcome Center", BASIC), //PLEASE CONFIRM, NOT CORRECT LOCATION
+            new Location("Underpass", BASIC, 0.768, 0.352),
+            new Location("Welcome Center", BASIC, 1.0, 0.464),
             new Location("Wildflower Meadow", BASIC, 0.346, 0.511),
     };
 
     //returns a random item from a given array
-    public static <T> T random(T[] a) {
-        return a[(int)(Math.random() * a.length)];
-    }
-    public static Location random(ArrayList<Location> a) {
+    public static <T> T random(ArrayList<T> a) {
         return a.get((int)(Math.random() * a.size()));
     }
 
@@ -204,6 +191,25 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //the ArrayList legSelection stores all characters by default,
+        //this can change now based on the checkbox dialog window
+        getLegSelection().add("Bangalore");
+        getLegSelection().add("Gibraltar");
+        getLegSelection().add("Lifeline");
+        getLegSelection().add("Pathfinder");
+        getLegSelection().add("Bloodhound");
+        getLegSelection().add("Mirage");
+        getLegSelection().add("Caustic");
+        getLegSelection().add("Octane"); //s1
+        getLegSelection().add("Wattson"); //s2
+        getLegSelection().add("Crypto"); //s3
+        getLegSelection().add("Revenant"); //s4
+        getLegSelection().add("Loba"); //s5
+        getLegSelection().add("Rampart"); //s6
+        getLegSelection().add("Horizon"); //s7
+        getLegSelection().add("Fuse"); //s8
+        //getLegSelection().add("Valk"); //s9?
 
         //get resources
         //radio buttons
@@ -250,7 +256,7 @@ public class MainActivity extends AppCompatActivity {
                 markImg.setLayoutParams(params);
 
                 //random character process
-                character.setText(random(legends));
+                character.setText(random(legSelection));
                 String leg = character.getText().toString().toLowerCase();
                 int id = getResources().getIdentifier(leg, "drawable", getPackageName());
                 charImg.setImageResource(id);
@@ -259,6 +265,13 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Randomization failed. At least one loot tier must be selected.", Toast.LENGTH_SHORT).show();
             }
         });
+
+        charImg.setOnClickListener(v -> {
+            
+        });
+    }
+    public void displayCharacterDialog(View view) {
+        //new CharacterSelectionDialog().show(getFragmentManager(), "character_selection_dialog");
     }
 
     public static Location randomLocation(Location[] a, boolean high, boolean mid, boolean basic) {

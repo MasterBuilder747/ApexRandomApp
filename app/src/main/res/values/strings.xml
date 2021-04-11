@@ -13,4 +13,28 @@
     <string name="mid">Mid</string>
     <string name="basic">Basic</string>
     <string name="loot_tier">Loot tier:</string>
+
+    <!--         
+    "Bangalore"
+    "Gibraltar"
+    "Lifeline"
+    "Pathfinder"
+    "Bloodhound"
+    "Mirage"
+    "Caustic"
+    "Octane" //s1
+    "Wattson" //s2
+    "Crypto" //s3
+    "Revenant" //s4
+    "Loba" //s5
+    "Rampart" //s6
+    "Horizon" //s7
+    "Fuse" //s8
+    //"Valk" //s9? 
+    -->
+    
+    <string-array name="Legends">
+        <item>"Bangalore"</item>
+        <item>"Gibraltar"</item>
+    </string-array>
 </resources>

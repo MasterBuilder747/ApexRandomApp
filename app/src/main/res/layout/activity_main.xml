@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:contentDescription="@string/map_location_selection"
-        android:src="@drawable/kingscanyonzoom"
+        android:src="@drawable/olympuszoom"
         app:layout_constraintBottom_toTopOf="@+id/divider2"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.45"
@@ -25,13 +25,13 @@
         android:layout_height="70dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/shows_location_on_map"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/mapImg"
         app:layout_constraintEnd_toEndOf="@+id/mapImg"
-        app:layout_constraintHorizontal_bias="0.194"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/mapImg"
         app:layout_constraintTop_toTopOf="@+id/mapImg"
-        app:layout_constraintVertical_bias="0.687"
+        app:layout_constraintVertical_bias="0.5"
         app:srcCompat="@drawable/marker" />
 
     <View
