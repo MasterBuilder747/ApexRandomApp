@@ -11,12 +11,13 @@
         android:id="@+id/mapImg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="42dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/map_location_selection"
         android:src="@drawable/olympuszoom"
         app:layout_constraintBottom_toTopOf="@+id/divider2"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45"
+        app:layout_constraintVertical_bias="0.8"
         tools:layout_editor_absoluteX="0dp" />
 
     <ImageView
@@ -25,13 +26,13 @@
         android:layout_height="70dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/shows_location_on_map"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/mapImg"
         app:layout_constraintEnd_toEndOf="@+id/mapImg"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.117"
         app:layout_constraintStart_toStartOf="@+id/mapImg"
         app:layout_constraintTop_toTopOf="@+id/mapImg"
-        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintVertical_bias="0.502"
         app:srcCompat="@drawable/marker" />
 
     <View
