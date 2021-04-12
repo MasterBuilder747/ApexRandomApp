@@ -1,7 +1,7 @@
 
 ![Logo_small](https://user-images.githubusercontent.com/22829567/112383198-0cae2380-8caa-11eb-97f7-aa0939a77628.png)
 
-The app displays a random character and location. Locations can be filtered by their loot type (High, Mid, Basic) with checkmarks. All characters and locations on all three maps are supported. The app updates as the game updates per season. The color theme of the app corresponds with the color theme of the game season.
+The app displays a random character and location. Locations can be filtered by their loot type (High, Mid, Basic) with checkmarks. All characters and locations on all three maps are supported. The app updates as the game updates per season. System dark theme is supported. The color theme of the app corresponds with the color theme of the game season.
 
 1. Download here: (~20MB size, requires Android 5.0 or greater) -> [v8.1.2](https://drive.google.com/file/d/1GGhM_3p6lFgapntXTcM4VfydEMSIPTH4/view?usp=sharing)
 
