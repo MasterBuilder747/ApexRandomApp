@@ -3,8 +3,6 @@ package com.masterbuilder747.apexrandom;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -267,13 +265,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        charImg.setOnClickListener(v -> {
-            
-        });
+//        charImg.setOnClickListener(v -> {
+//
+//        });
     }
-    public void displayCharacterDialog(View view) {
-        //new CharacterSelectionDialog().show(getFragmentManager(), "character_selection_dialog");
-    }
+//    public void displayCharacterDialog(View view) {
+//        //new CharacterSelectionDialog().show(getFragmentManager(), "character_selection_dialog");
+//    }
 
     public static Location randomLocation(Location[] a, boolean high, boolean mid, boolean basic) {
         ArrayList<Location> BList = new ArrayList<>();
