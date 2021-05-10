@@ -1,17 +1,24 @@
-
-![Logo_small](https://user-images.githubusercontent.com/22829567/112383198-0cae2380-8caa-11eb-97f7-aa0939a77628.png)
+![Logo9_small](https://user-images.githubusercontent.com/22829567/117717820-2939e880-b190-11eb-851c-5e26d9f7dcae.png)
 
 The app displays a random character and location. Locations can be filtered by their loot type (High, Mid, Basic) with checkmarks. All characters and locations on all three maps are supported. The app updates as the game updates per season. System dark theme is supported. The color theme of the app corresponds with the color theme of the game season.
 
-1. Download here: (~20MB size, requires Android 5.0 or greater) -> [v8.1.2](https://drive.google.com/file/d/1GGhM_3p6lFgapntXTcM4VfydEMSIPTH4/view?usp=sharing)
+1. Download here: (21MB size, requires Android 5.0 or greater) -> [v9.0.1](https://drive.google.com/file/d/1JcVJ_o6iLF7U8Fll70WELaDzNrWhPB3r/view?usp=sharing)
 
 2. Tap "Allow installation of unknown apps" (or something like that) and it will run. There are no system permissions.
 
 <details><summary>Screenshots:</summary>
   
-![Screenshot_20210324-134729_Apex Legends Randomizer](https://user-images.githubusercontent.com/22829567/112381546-f010ec00-8ca7-11eb-94fe-5e54ee2b9768.jpg)
+New Legend:
+  
+![Screenshot_20210510-130613_Apex Legends Randomizer](https://user-images.githubusercontent.com/22829567/117718447-efb5ad00-b190-11eb-9994-e1056449d5f2.jpg)
 
-![Screenshot_20210324-134754_Apex Legends Randomizer](https://user-images.githubusercontent.com/22829567/112381719-2484a800-8ca8-11eb-99c9-6c6228fba693.jpg)
+New Location:
+
+![Screenshot_20210510-130620_Apex Legends Randomizer](https://user-images.githubusercontent.com/22829567/117718521-078d3100-b191-11eb-93e0-754ea740564a.jpg)
+
+Dark theme supported:
+
+![Screenshot_20210510-131142_Apex Legends Randomizerdarks9](https://user-images.githubusercontent.com/22829567/117718763-5fc43300-b191-11eb-9965-cd693d6e5341.jpg)
 
 </details>
 
