@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FF5100</color>
-    <color name="header_light">#FF692D</color>
+    <color name="purple_200">#6701A6</color>
+    <color name="header_light">#770EBA</color>
     <!-- purple 700 = status bar color, cannot rename this resource -->
     <color name="purple_700">#000000</color>
 
@@ -10,6 +10,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="black">#FFFFFF</color>
     <!-- Radio button colors, light and dark -->
-    <color name="teal_200">#FF7011</color>
-    <color name="teal_700">#B35503</color>
+    <color name="teal_200">#7F00B5</color>
+    <color name="teal_700">#4C0081</color>
 </resources>

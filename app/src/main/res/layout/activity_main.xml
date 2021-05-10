@@ -14,7 +14,7 @@
         android:layout_marginBottom="42dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/map_location_selection"
-        android:src="@drawable/kingscanyonzoom"
+        android:src="@drawable/olympuszoom"
         app:layout_constraintBottom_toTopOf="@+id/divider2"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.8"
@@ -65,8 +65,8 @@
         app:layout_constraintTop_toTopOf="@+id/divider"
         app:layout_constraintVertical_bias="0.636">
         <RadioButton
-            android:checked="true"
-            android:enabled="true"
+            android:checked="false"
+            android:enabled="false"
             android:id="@+id/king"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
             android:onClick="checkButton"
             android:text="@string/world_s_edge"/>
         <RadioButton
-            android:checked="false"
+            android:checked="true"
             android:enabled="true"
             android:id="@+id/olympus"
             android:layout_width="wrap_content"
@@ -151,7 +151,7 @@
         android:id="@+id/newGameButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#DD4904"
+        android:backgroundTint="#8300B3"
         android:text="@string/new_game"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"

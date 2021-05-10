@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     final public static int MID = 1;
     final public static int BASIC = 0;
 
-    ArrayList<String> legSelection = new ArrayList<>();
+    private final ArrayList<String> legSelection = new ArrayList<>();
     public ArrayList<String> getLegSelection() {
         return legSelection;
     }
@@ -136,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
             new Location("Pathfinder's Fight Night", HIGH, 0.366, 0.198),
             new Location("Rift Aftermath", HIGH, 0.686, 0.213),
             new Location("Research Basin", HIGH, 0.504, 0.47),
+            new Location("The Icarus", HIGH, 0.733, 0.908),
             new Location("The Reverie Lounge", HIGH, 0.504, 0.973),
 
             new Location("Bonsai Plaza", MID, 0.57, 0.985),
@@ -151,7 +152,6 @@ public class MainActivity extends AppCompatActivity {
             new Location("Agriculture Entry", BASIC, 0.158, 0.71),
             new Location("Antechamber", BASIC, 0.521, 0.328),
             new Location("Bonsai Hillside", BASIC, 0.54, 0.86),
-            new Location("Crossroads", BASIC, 0.686, 0.825),
             new Location("Defense Perimeter", BASIC, 0.815, 0.834),
             new Location("Farmstead", BASIC, 0.046, 0.609),
             new Location("Irrigation Platform", BASIC, 0.117, 0.502),
@@ -208,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
         getLegSelection().add("Rampart"); //s6
         getLegSelection().add("Horizon"); //s7
         getLegSelection().add("Fuse"); //s8
-        //getLegSelection().add("Valk"); //s9?
+        getLegSelection().add("Valkyrie"); //s9
 
         //get resources
         //radio buttons
@@ -227,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
         basicChk = findViewById(R.id.basic_box);
 
         //update the imageViews to show default images
-        mapImg.setImageResource(R.drawable.kingscanyonzoom);
+        mapImg.setImageResource(R.drawable.olympuszoom);
         charImg.setImageResource(R.drawable.defaultchoose);
         markImg.setImageResource(R.drawable.marker);
 
