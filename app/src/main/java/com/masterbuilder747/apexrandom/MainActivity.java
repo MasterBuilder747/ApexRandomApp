@@ -4,25 +4,38 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    final public static int HIGH = 2;
-    final public static int MID = 1;
-    final public static int BASIC = 0;
+    final private static int HIGH = 2;
+    final private static int MID = 1;
+    final private static int BASIC = 0;
 
     private final ArrayList<String> legSelection = new ArrayList<>();
-    public ArrayList<String> getLegSelection() {
+    private ArrayList<String> getLegSelection() {
         return legSelection;
     }
 
@@ -33,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     //name, lootLvl, x, y
     // 0.0 <= x <= 1.0
     // 0.0 <= y <= 1.0
-    static final Location[] map_kings = {
+    private static final Location[] map_kings = {
             new Location("Airbase", HIGH, 0.029, 0.586),
             new Location("Artillery Battery", HIGH, 0.521, 0.095),
             new Location("Bunker Pass", HIGH, 0.351, 0.485),
@@ -95,37 +108,42 @@ public class MainActivity extends AppCompatActivity {
             new Location("Uncovered Bones", BASIC, 0.114, 0.294)
     };
 
-    static final Location[] map_worlds = {
-            new Location("Bloodhound's Trials", HIGH, 0.073, 0.13),
-            new Location("Countdown", HIGH, 0.167, 0.29),
-            new Location("Fragment East", HIGH, 0.686, 0.393),
-            new Location("Harvester", HIGH, 0.44, 0.62),
-            new Location("Launch Site", HIGH, 0.563, 0.939),
-            new Location("Lava City", HIGH, 0.9, 0.847),
-            new Location("Lava Fissure", HIGH, 0.029, 0.323),
-            new Location("Overlook", HIGH, 1.0, 0.343),
-            new Location("Refinery", HIGH, 0.791, 0.08),
-            new Location("Staging", HIGH, 0.208, 0.571),
-            new Location("Skyhook", HIGH, 0.234, 0.147),
-            new Location("Sorting Factory", HIGH, 0.586, 0.754),
-            new Location("Survey Camp", HIGH, 0.48, 0.2),
-            new Location("Thermal Station", HIGH, 0.158, 0.75),
-            new Location("The Dome", HIGH, 0.8, 1.0),
-            new Location("The Epicenter", HIGH, 0.686, 0.192),
-            new Location("The Geyser", HIGH, 0.847, 0.604),
-            new Location("The Tree", HIGH, 0.363, 0.872),
-            new Location("The Train Yard", HIGH, 0.299, 0.426),
+    private static final Location[] map_worlds = {
+            new Location("Bloodhound's Trials", HIGH, 0.117, 0.108),
+            new Location("Climatizer", HIGH, 0.791, 0.058), //replaced refinery
+            new Location("Countdown", HIGH, 0.215, 0.269),
+            new Location("Fragment East", HIGH, 0.67, 0.387),
+            new Location("Harvester", HIGH, 0.454, 0.63),
+            new Location("Launch Site", HIGH, 0.56, 1.0),
+            new Location("Lava City", HIGH, 0.863, 0.86),
+            new Location("Lava Fissure", HIGH, 0.093, 0.34),
+            new Location("Lava Siphon", HIGH, 0.601, 0.777), //replaced sorting factory
+            new Location("Overlook", HIGH, 0.953, 0.34),
+            //new Location("Refinery", HIGH, 0.791, 0.08),
+            new Location("Staging", HIGH, 0.234, 0.568),
+            new Location("Skyhook", HIGH, 0.299, 0.087),
+            //new Location("Sorting Factory", HIGH, 0.586, 0.754),
+            new Location("Survey Camp", HIGH, 0.64, 0.02), //0.78, 0.436?
+            new Location("Thermal Station", HIGH, 0.2, 0.766),
+            new Location("The Dome", HIGH, 0.771, 1.0),
+            new Location("The Epicenter", HIGH, 0.67, 0.175),
+            new Location("The Geyser", HIGH, 0.821, 0.604),
+            new Location("The Tree", HIGH, 0.38, 0.9),
+            //new Location("The Train Yard", HIGH, 0.299, 0.426),
+            new Location("Storage Room", HIGH, 0.457, 0.0), //inside The Rain Tunnel
 
-            new Location("Fragment West", MID, 0.56, 0.333),
-            new Location("Spring's End", MID, 0.049, 0.498),
+            new Location("Fragment West", MID, 0.56, 0.331),
+            new Location("Landslide", MID, 0.316, 0.416), //replaced train yard
+            new Location("Spring's End", MID, 0.093, 0.486),
 
-            new Location("Hill Valley", BASIC, 0.299, 0.318),
+            new Location("Fissure Crossing", BASIC, 0.75, 0.155), //located directly south next to Climatizer, and west of Epicenter
+            new Location("Hill Valley", BASIC, 0.316, 0.328), //478, 19?
             new Location("The Bridge", BASIC, 0.276, 0.75),
-            new Location("The Mining Pass", BASIC, 0.316, 0.511),
-            new Location("The Rain Tunnel", BASIC, 0.478, 0.077)
+            new Location("The Mining Pass", BASIC, 0.34, 0.519),
+            new Location("The Rain Tunnel", BASIC, 0.478, 0.073)
     };
 
-    static final Location[] map_olympus = {
+    private static final Location[] map_olympus = {
             new Location("Autumn Estates", HIGH, 0.265, 0.529),
             new Location("Arcadia Supercarrier", HIGH, 0.25, 0.201),
             new Location("Docks", HIGH, 0.343, 0.035),
@@ -171,12 +189,15 @@ public class MainActivity extends AppCompatActivity {
     };
 
     //returns a random item from a given array
-    public static <T> T random(ArrayList<T> a) {
+    private static <T> T random(ArrayList<T> a) {
         return a.get((int)(Math.random() * a.size()));
     }
 
     RadioGroup radioGroup; //the group of radioButtons, there is only 1
     RadioButton radioButton; //the selected radio button, 1 out of the possible 3
+    RadioButton radioButtonDefault1; //only used for rechecking the right one
+    RadioButton radioButtonDefault2; //only used for rechecking the right one
+    RadioButton radioButtonDefault3; //only used for rechecking the right one
     TextView character; //text outputs
     TextView location;
     ImageView charImg; //image outputs
@@ -186,10 +207,59 @@ public class MainActivity extends AppCompatActivity {
     CheckBox midChk;
     CheckBox basicChk;
 
+    private FrameLayout adContainerView;
+    private AdView adView;
+
+    private AdSize getAdSize() {
+        //Determine the screen width to use for the ad width.
+        Display display = getWindowManager().getDefaultDisplay();
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        display.getMetrics(outMetrics);
+
+        float widthPixels = outMetrics.widthPixels;
+        float density = outMetrics.density;
+
+        //you can also pass your selected width here in dp
+        int adWidth = (int) (widthPixels / density);
+
+        //return the optimal size depends on your orientation (landscape or portrait)
+        return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, adWidth);
+    }
+
+    private void loadBanner() {
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+
+        AdSize adSize = getAdSize();
+        // Set the adaptive ad size to the ad view.
+        adView.setAdSize(adSize);
+
+        // Start loading the ad in the background.
+        adView.loadAd(adRequest);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Toast.makeText(this, "START", Toast.LENGTH_SHORT).show();
+
+        //Call the function to initialize AdMob SDK
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        //get the reference to your FrameLayout
+        adContainerView = findViewById(R.id.adView_container);
+        //Create an AdView and put it into your FrameLayout
+        adView = new AdView(this);
+        adContainerView.addView(adView);
+        adView.setAdUnitId("ca-app-pub-3940256099942544/6300978111"); //change later, sample
+        //start requesting banner ads
+        loadBanner();
 
         //the ArrayList legSelection stores all characters by default,
         //this can change now based on the checkbox dialog window
@@ -209,6 +279,7 @@ public class MainActivity extends AppCompatActivity {
         getLegSelection().add("Horizon"); //s7
         getLegSelection().add("Fuse"); //s8
         getLegSelection().add("Valkyrie"); //s9
+        getLegSelection().add("Seer"); //s10
 
         //get resources
         //radio buttons
@@ -227,9 +298,20 @@ public class MainActivity extends AppCompatActivity {
         basicChk = findViewById(R.id.basic_box);
 
         //update the imageViews to show default images
-        mapImg.setImageResource(R.drawable.olympuszoom);
+        mapImg.setImageResource(R.drawable.worldsedgezoom);
         charImg.setImageResource(R.drawable.defaultchoose);
         markImg.setImageResource(R.drawable.marker);
+        //update buttons to show defaults
+        highChk.setChecked(true);
+        midChk.setChecked(true);
+        basicChk.setChecked(false);
+        //set default radio button
+        radioButtonDefault1 = findViewById(R.id.king);
+        radioButtonDefault1.setChecked(false);
+        radioButtonDefault2 = findViewById(R.id.world);
+        radioButtonDefault2.setChecked(true);
+        radioButtonDefault3 = findViewById(R.id.olympus);
+        radioButtonDefault3.setChecked(false);
 
         button.setOnClickListener(v -> {
             //random map location process
@@ -269,11 +351,12 @@ public class MainActivity extends AppCompatActivity {
 //
 //        });
     }
+
 //    public void displayCharacterDialog(View view) {
 //        //new CharacterSelectionDialog().show(getFragmentManager(), "character_selection_dialog");
 //    }
 
-    public static Location randomLocation(Location[] a, boolean high, boolean mid, boolean basic) {
+    private static Location randomLocation(Location[] a, boolean high, boolean mid, boolean basic) {
         ArrayList<Location> BList = new ArrayList<>();
         for (Location l : a) {
             if (high && l.loot == HIGH || mid && l.loot == MID || basic && l.loot == BASIC) {
