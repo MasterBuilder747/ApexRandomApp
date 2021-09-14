@@ -1,14 +1,9 @@
 package com.masterbuilder747.apexrandom;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.FrameLayout;
@@ -18,6 +13,9 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
@@ -26,7 +24,6 @@ import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -110,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final Location[] map_worlds = {
             new Location("Bloodhound's Trials", HIGH, 0.117, 0.108),
+            new Location("Big Maude", HIGH, 0.909, 0.771),
             new Location("Climatizer", HIGH, 0.791, 0.058), //replaced refinery
             new Location("Countdown", HIGH, 0.215, 0.269),
             new Location("Fragment East", HIGH, 0.67, 0.387),
@@ -207,9 +205,6 @@ public class MainActivity extends AppCompatActivity {
     CheckBox midChk;
     CheckBox basicChk;
 
-    private FrameLayout adContainerView;
-    private AdView adView;
-
     private AdSize getAdSize() {
         //Determine the screen width to use for the ad width.
         Display display = getWindowManager().getDefaultDisplay();
@@ -226,19 +221,6 @@ public class MainActivity extends AppCompatActivity {
         return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, adWidth);
     }
 
-    private void loadBanner() {
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .build();
-
-        AdSize adSize = getAdSize();
-        // Set the adaptive ad size to the ad view.
-        adView.setAdSize(adSize);
-
-        // Start loading the ad in the background.
-        adView.loadAd(adRequest);
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -247,19 +229,18 @@ public class MainActivity extends AppCompatActivity {
         //Toast.makeText(this, "START", Toast.LENGTH_SHORT).show();
 
         //Call the function to initialize AdMob SDK
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-            }
+        MobileAds.initialize(this, initializationStatus -> {
         });
-        //get the reference to your FrameLayout
-        adContainerView = findViewById(R.id.adView_container);
-        //Create an AdView and put it into your FrameLayout
-        adView = new AdView(this);
-        adContainerView.addView(adView);
-        adView.setAdUnitId("ca-app-pub-3940256099942544/6300978111"); //change later, sample
+
+        AdView adView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
+        //my code: ca-app-pub-1434361778834991/8268462243
+        //sample code: ca-app-pub-3940256099942544/6300978111
+        //ca-app-pub-1434361778834991~1953453459 //put in manifest
+        //sample ad code:
         //start requesting banner ads
-        loadBanner();
+        //loadBanner();
 
         //the ArrayList legSelection stores all characters by default,
         //this can change now based on the checkbox dialog window
