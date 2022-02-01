@@ -6,7 +6,6 @@ import android.view.Display;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -20,8 +19,6 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import java.util.ArrayList;
 
@@ -183,7 +180,61 @@ public class MainActivity extends AppCompatActivity {
             new Location("Supply Track", BASIC, 0.621, 0.286),
             new Location("Underpass", BASIC, 0.768, 0.352),
             new Location("Welcome Center", BASIC, 1.0, 0.464),
-            new Location("Wildflower Meadow", BASIC, 0.346, 0.511),
+            new Location("Wildflower Meadow", BASIC, 0.346, 0.511)
+    };
+
+    private static final Location[] map_stormpoint = {
+            //prowler camps/islands/dens will not be a location to land, but instead marked on the map
+            new Location("Black Sand Islands", HIGH, 0.316, 0.099),
+            new Location("Cenote Cave", HIGH, 0.093, 0.739),
+            new Location("Checkpoint",  HIGH, 0.272, 0.275),
+            new Location("Forbidden Zone",  HIGH, 0.478, 0.595), //aka Jurassic Park
+            new Location("Launch Pad",  HIGH, 0.797, 0.665),
+            new Location("Lightning Rod",  HIGH, 0.923, 0.087),
+            new Location("Ship Fall",  HIGH, 0.48, 0.964),
+            new Location("The Mill",  HIGH, 0.085, 0.466),
+            new Location("Thunder Watch",  HIGH, 0.926, 0.087),
+
+            new Location("Antenna", MID, 0.59, 0.73),
+            new Location("Barometer", MID, 0.302, 0.771),
+            new Location("Cascade Falls", MID, 0.498, 0.366),
+            new Location("Command Center",  MID, 0.686, 0.266),
+            new Location("Fish Farms",  MID, 0.847, 0.859),
+            new Location("Forest",  MID, 0.272, 0.372),
+            new Location("Gale Station",  MID, 0.673, 0.876),
+            new Location("Highpoint",  MID, 0.797, 0.038),
+            new Location("North Pad",  MID, 0.194, 0.111),
+            new Location("Storm Catcher",  MID, 0.794, 0.372),
+            new Location("The Caves",  MID, 0.495, 0.504),
+            new Location("The Wall",  MID, 0.56, 0.085),
+
+            new Location("Alex's Crossing",  BASIC, 0.243, 0.73),
+            new Location("AOB",  BASIC, 0.028, 0.56),
+            new Location("Black Diamond",  BASIC, 0.653, 0.046),
+            new Location("Bunny Slope",  BASIC, 0.565, 0.193),
+            new Location("Colony East Camp",  BASIC, 0.917, 0.466),
+            new Location("Cory's Crossing",  BASIC, 0.299, 0.882),
+            new Location("Dave's Crossing",  BASIC, 0.093, 0.63),
+            new Location("Davis' Crossing",  BASIC, 0.401, 0.832),
+            new Location("East Lift",  BASIC, 0.771, 0.469),
+            new Location("East Trail",  BASIC, 0.953, 0.31), //could also be on the other side of the rock (left)
+            new Location("Lonely Island",  BASIC, 0.615, 0.976),
+            new Location("McCord's Landing",  BASIC, 0.686, 0.0),
+            new Location("Medina Island",  BASIC, 0.0, 0.695),
+            new Location("Mountain Cave",  BASIC, 0.7, 0.175),
+            new Location("Mountain Lift",  BASIC, 0.635, 0.384),
+            new Location("Mountain Top",  BASIC, 1.0, 0.214),
+            new Location("North Pueblo",  BASIC, 0.0, 0.39),
+            new Location("Oasis",  BASIC, 0.434, 0.442),
+            new Location("River's Center",  BASIC, 0.601, 0.478),
+            new Location("Siren Isle",  BASIC, 0.228, 0.539),
+            new Location("Southern Point",  BASIC, 0.299, 0.97),
+            new Location("The Lagoon",  BASIC, 0.686, 0.58),
+            new Location("The Ridge",  BASIC, 0.903, 0.756), //confirm???
+            new Location("Trenches",  BASIC, 0.243, 0.152),
+            new Location("Uncharted Cliffs",  BASIC, 0.457, 0.0),
+            new Location("Water Hole",  BASIC, 0.565, 0.334),
+            new Location("Zavala's Crossing",  BASIC, 0.39, 0.718)
     };
 
     //returns a random item from a given array
@@ -196,6 +247,7 @@ public class MainActivity extends AppCompatActivity {
     RadioButton radioButtonDefault1; //only used for rechecking the right one
     RadioButton radioButtonDefault2; //only used for rechecking the right one
     RadioButton radioButtonDefault3; //only used for rechecking the right one
+    RadioButton radioButtonDefault4; //only used for rechecking the right one
     TextView character; //text outputs
     TextView location;
     ImageView charImg; //image outputs
@@ -261,6 +313,8 @@ public class MainActivity extends AppCompatActivity {
         getLegSelection().add("Fuse"); //s8
         getLegSelection().add("Valkyrie"); //s9
         getLegSelection().add("Seer"); //s10
+        getLegSelection().add("Ash"); //s11
+        //Mali? //s12
 
         //get resources
         //radio buttons
@@ -279,7 +333,7 @@ public class MainActivity extends AppCompatActivity {
         basicChk = findViewById(R.id.basic_box);
 
         //update the imageViews to show default images
-        mapImg.setImageResource(R.drawable.worldsedgezoom);
+        mapImg.setImageResource(R.drawable.stormpointzoom);
         charImg.setImageResource(R.drawable.defaultchoose);
         markImg.setImageResource(R.drawable.marker);
         //update buttons to show defaults
@@ -290,9 +344,11 @@ public class MainActivity extends AppCompatActivity {
         radioButtonDefault1 = findViewById(R.id.king);
         radioButtonDefault1.setChecked(false);
         radioButtonDefault2 = findViewById(R.id.world);
-        radioButtonDefault2.setChecked(true);
+        radioButtonDefault2.setChecked(false);
         radioButtonDefault3 = findViewById(R.id.olympus);
         radioButtonDefault3.setChecked(false);
+        radioButtonDefault4 = findViewById(R.id.stormpoint);
+        radioButtonDefault4.setChecked(true);
 
         button.setOnClickListener(v -> {
             //random map location process
@@ -307,8 +363,10 @@ public class MainActivity extends AppCompatActivity {
                     k = randomLocation(map_kings, highChk.isChecked(), midChk.isChecked(), basicChk.isChecked());
                 } else if (map.contains("World")) {
                     k = randomLocation(map_worlds, highChk.isChecked(), midChk.isChecked(), basicChk.isChecked());
-                } else {
+                } else if (map.contains("Olympus")) {
                     k = randomLocation(map_olympus, highChk.isChecked(), midChk.isChecked(), basicChk.isChecked());
+                } else {
+                    k = randomLocation(map_stormpoint, highChk.isChecked(), midChk.isChecked(), basicChk.isChecked());
                 }
                 markImg.setVisibility(View.VISIBLE);
                 location.setText(k.name);
@@ -354,11 +412,13 @@ public class MainActivity extends AppCompatActivity {
 
         String map = radioButton.getText().toString();
         if (map.contains("King")) {
-            mapImg.setImageResource(R.drawable.kingscanyonzoom);
+            //mapImg.setImageResource(R.drawable.kingscanyonzoom);
         } else if (map.contains("World")) {
             mapImg.setImageResource(R.drawable.worldsedgezoom);
+        } else if (map.contains("Olympus")) {
+            //mapImg.setImageResource(R.drawable.olympuszoom);
         } else {
-            mapImg.setImageResource(R.drawable.olympuszoom);
+            mapImg.setImageResource(R.drawable.stormpointzoom);
         }
     }
 }
