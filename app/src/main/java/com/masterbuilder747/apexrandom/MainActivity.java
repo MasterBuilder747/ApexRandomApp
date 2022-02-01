@@ -314,7 +314,7 @@ public class MainActivity extends AppCompatActivity {
         getLegSelection().add("Valkyrie"); //s9
         getLegSelection().add("Seer"); //s10
         getLegSelection().add("Ash"); //s11
-        //Mali? //s12
+        getLegSelection().add("Maggie"); //s11
 
         //get resources
         //radio buttons

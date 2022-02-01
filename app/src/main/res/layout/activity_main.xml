@@ -100,7 +100,7 @@
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:checked="false"
-            android:enabled="true"
+            android:enabled="false"
             android:onClick="checkButton"
             android:text="@string/world_s_edge" />
 
@@ -108,8 +108,8 @@
             android:id="@+id/olympus"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:checked="false"
-            android:enabled="false"
+            android:checked="true"
+            android:enabled="true"
             android:onClick="checkButton"
             android:text="@string/olympus" />
 
@@ -117,7 +117,7 @@
             android:id="@+id/stormpoint"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:checked="true"
+            android:checked="false"
             android:enabled="true"
             android:onClick="checkButton"
             android:text="@string/stormpoint" />
@@ -182,7 +182,8 @@
         android:id="@+id/newGameButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#FF5D5D"
+        android:backgroundTint="#F8F536"
+        android:textColor="#000000"
         android:text="@string/new_game"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -244,6 +245,7 @@
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:adSize="BANNER"

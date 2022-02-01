@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.masterbuilder747.apexrandom">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:icon="@mipmap/ic_launcher"
@@ -9,11 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ApexRandom"
         android:allowBackup="true"
-        android:fullBackupContent="true">
+        android:fullBackupContent="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        tools:targetApi="s">
         <activity android:screenOrientation="portrait"
             android:hardwareAccelerated="true"
             android:alwaysRetainTaskState="true"
-            android:name=".MainActivity">
+            android:name=".MainActivity"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
