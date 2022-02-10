@@ -10,8 +10,8 @@ android {
         applicationId "com.masterbuilder747.apexrandom"
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 7
-        versionName "12.0.7" //season.(0=first half, 1=2nd half).appVersion
+        versionCode 8
+        versionName "12.0.8" //season.(0=first half, 1=2nd half).appVersion
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
