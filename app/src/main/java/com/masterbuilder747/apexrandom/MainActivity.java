@@ -147,28 +147,31 @@ public class MainActivity extends AppCompatActivity {
             new Location("Hydroponics", HIGH, 0.093, 0.772),
             new Location("Orbital Cannon Test Site", HIGH, 0.953, 0.831),
             new Location("Pathfinder's Fight Night", HIGH, 0.366, 0.198),
+            new Location("Phase Driver", HIGH, 0.348, 0.893),
             new Location("Rift Aftermath", HIGH, 0.686, 0.213),
             new Location("Research Basin", HIGH, 0.504, 0.47),
-            new Location("The Icarus", HIGH, 0.733, 0.908),
-            new Location("The Reverie Lounge", HIGH, 0.504, 0.973),
+            new Location("The Icarus", HIGH, 0.765, 0.949),
+            new Location("The Reverie Lounge", HIGH, 0.545, 1.0),
 
-            new Location("Bonsai Plaza", MID, 0.57, 0.985),
+            new Location("Bonsai Plaza", MID, 0.585, 1.0),
             new Location("Central Turbine", MID, 0.44, 0.36),
             new Location("Grow Towers", MID, 0.859, 0.582),
             new Location("Golden Gardens", MID, 0.879, 0.396),
             new Location("Hammond Labs", MID, 0.55, 0.559),
+            new Location("Phase Terminal", MID, 0.457, 0.695),
             new Location("Primary Power Grid", MID, 0.521, 0.204),
             new Location("Power Station East", MID, 1.0, 0.292),
-            new Location("Solar Array", MID, 0.63, 0.736),
+            new Location("Solar Array", MID, 0.68, 0.815),
             new Location("Velvet Oasis", MID, 0.1, 0.328),
 
             new Location("Agriculture Entry", BASIC, 0.158, 0.71),
             new Location("Antechamber", BASIC, 0.521, 0.328),
-            new Location("Bonsai Hillside", BASIC, 0.54, 0.86),
+            new Location("Backlot", BASIC, 0.243, 0.914),
+            new Location("Bonsai Hillside", BASIC, 0.521, 0.943),
             new Location("Defense Perimeter", BASIC, 0.815, 0.834),
             new Location("Farmstead", BASIC, 0.046, 0.609),
             new Location("Irrigation Platform", BASIC, 0.117, 0.502),
-            new Location("Ivory Pass", BASIC, 0.824, 0.689),
+            new Location("Ivory Pass", BASIC, 0.765, 0.671),
             new Location("Lab Annex", BASIC, 0.392, 0.573),
             new Location("Landing Pier", BASIC, 0.434, 0.0),
             new Location("Maintenance", BASIC, 0.48, 0.431),
@@ -176,6 +179,7 @@ public class MainActivity extends AppCompatActivity {
             new Location("Phase Gateway Central", BASIC, 0.686, 0.582),
             new Location("Phase Gateway West", BASIC, 0.192, 0.636),
             new Location("Secondary Power Grid", BASIC, 0.574, 0.068),
+            new Location("Shifted Grounds", BASIC, 0.48, 0.828),
             new Location("Shipyard", BASIC, 0.146, 0.213),
             new Location("Supply Track", BASIC, 0.621, 0.286),
             new Location("Underpass", BASIC, 0.768, 0.352),
@@ -314,7 +318,8 @@ public class MainActivity extends AppCompatActivity {
         getLegSelection().add("Valkyrie"); //s9
         getLegSelection().add("Seer"); //s10
         getLegSelection().add("Ash"); //s11
-        getLegSelection().add("Maggie"); //s11
+        getLegSelection().add("Mad Maggie"); //s12
+        //Husaria?? //s13
 
         //get resources
         //radio buttons
@@ -333,7 +338,7 @@ public class MainActivity extends AppCompatActivity {
         basicChk = findViewById(R.id.basic_box);
 
         //update the imageViews to show default images
-        mapImg.setImageResource(R.drawable.stormpointzoom);
+        mapImg.setImageResource(R.drawable.olympuszoom);
         charImg.setImageResource(R.drawable.defaultchoose);
         markImg.setImageResource(R.drawable.marker);
         //update buttons to show defaults
@@ -346,9 +351,9 @@ public class MainActivity extends AppCompatActivity {
         radioButtonDefault2 = findViewById(R.id.world);
         radioButtonDefault2.setChecked(false);
         radioButtonDefault3 = findViewById(R.id.olympus);
-        radioButtonDefault3.setChecked(false);
+        radioButtonDefault3.setChecked(true);
         radioButtonDefault4 = findViewById(R.id.stormpoint);
-        radioButtonDefault4.setChecked(true);
+        radioButtonDefault4.setChecked(false);
 
         button.setOnClickListener(v -> {
             //random map location process
@@ -377,7 +382,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //random character process
                 character.setText(random(legSelection));
-                String leg = character.getText().toString().toLowerCase();
+                String leg = character.getText().toString().toLowerCase().replace(" ", "");
                 int id = getResources().getIdentifier(leg, "drawable", getPackageName());
                 charImg.setImageResource(id);
             } else {
@@ -412,11 +417,11 @@ public class MainActivity extends AppCompatActivity {
 
         String map = radioButton.getText().toString();
         if (map.contains("King")) {
-            //mapImg.setImageResource(R.drawable.kingscanyonzoom);
+            mapImg.setImageResource(R.drawable.kingscanyonzoom);
         } else if (map.contains("World")) {
-            mapImg.setImageResource(R.drawable.worldsedgezoom);
+            //mapImg.setImageResource(R.drawable.worldsedgezoom);
         } else if (map.contains("Olympus")) {
-            //mapImg.setImageResource(R.drawable.olympuszoom);
+            mapImg.setImageResource(R.drawable.olympuszoom);
         } else {
             mapImg.setImageResource(R.drawable.stormpointzoom);
         }

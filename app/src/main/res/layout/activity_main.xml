@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:contentDescription="@string/map_location_selection"
-        android:src="@drawable/stormpointzoom"
+        android:src="@drawable/olympuszoom"
         app:layout_constraintBottom_toTopOf="@+id/divider2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -91,7 +91,7 @@
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:checked="false"
-            android:enabled="false"
+            android:enabled="true"
             android:onClick="checkButton"
             android:text="@string/king_s_canyon" />
 
@@ -245,7 +245,7 @@
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
-        android:visibility="invisible"
+        android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:adSize="BANNER"
