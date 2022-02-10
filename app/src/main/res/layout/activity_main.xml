@@ -93,7 +93,8 @@
             android:checked="false"
             android:enabled="true"
             android:onClick="checkButton"
-            android:text="@string/king_s_canyon" />
+            android:text="@string/king_s_canyon"
+            tools:ignore="UsingOnClickInXml" />
 
         <RadioButton
             android:id="@+id/world"
@@ -102,7 +103,8 @@
             android:checked="false"
             android:enabled="false"
             android:onClick="checkButton"
-            android:text="@string/world_s_edge" />
+            android:text="@string/world_s_edge"
+            tools:ignore="UsingOnClickInXml" />
 
         <RadioButton
             android:id="@+id/olympus"
@@ -111,7 +113,8 @@
             android:checked="true"
             android:enabled="true"
             android:onClick="checkButton"
-            android:text="@string/olympus" />
+            android:text="@string/olympus"
+            tools:ignore="UsingOnClickInXml" />
 
         <RadioButton
             android:id="@+id/stormpoint"
@@ -120,7 +123,8 @@
             android:checked="false"
             android:enabled="true"
             android:onClick="checkButton"
-            android:text="@string/stormpoint" />
+            android:text="@string/stormpoint"
+            tools:ignore="UsingOnClickInXml" />
     </RadioGroup>
 
     <TextView
