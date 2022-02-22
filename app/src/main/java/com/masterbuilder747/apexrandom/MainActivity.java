@@ -1,8 +1,6 @@
 package com.masterbuilder747.apexrandom;
 
 import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.view.Display;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -14,11 +12,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 
@@ -261,7 +254,7 @@ public class MainActivity extends AppCompatActivity {
     CheckBox midChk;
     CheckBox basicChk;
 
-    private AdSize getAdSize() {
+/*    private AdSize getAdSize() {
         //Determine the screen width to use for the ad width.
         Display display = getWindowManager().getDefaultDisplay();
         DisplayMetrics outMetrics = new DisplayMetrics();
@@ -275,7 +268,7 @@ public class MainActivity extends AppCompatActivity {
 
         //return the optimal size depends on your orientation (landscape or portrait)
         return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, adWidth);
-    }
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -284,13 +277,13 @@ public class MainActivity extends AppCompatActivity {
 
         //Toast.makeText(this, "START", Toast.LENGTH_SHORT).show();
 
+        //i fucking hate Google's strict ad policies
         //Call the function to initialize AdMob SDK
-        MobileAds.initialize(this, initializationStatus -> {
-        });
+        //MobileAds.initialize(this, initializationStatus -> { });
 
-        AdView adView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
+//        AdView adView = findViewById(R.id.adView);
+//        AdRequest adRequest = new AdRequest.Builder().build();
+//        adView.loadAd(adRequest);
         //my code: ca-app-pub-1434361778834991/8268462243
         //sample code: ca-app-pub-3940256099942544/6300978111
         //ca-app-pub-1434361778834991~1953453459 //put in manifest

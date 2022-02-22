@@ -17,7 +17,7 @@
         app:layout_constraintBottom_toTopOf="@+id/divider2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider3" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/markerImg"
@@ -38,40 +38,18 @@
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="40dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintBottom_toBottomOf="@+id/characterLabel"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:layout_editor_absoluteX="-16dp" />
 
     <View
         android:id="@+id/divider2"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="60dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintBottom_toTopOf="@+id/divider"
-        tools:layout_editor_absoluteX="0dp" />
-
-    <View
-        android:id="@+id/divider3"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginBottom="456dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toTopOf="@+id/divider"
-        app:layout_constraintTop_toBottomOf="@+id/divider4"
-        app:layout_constraintVertical_bias="0.987"
-        tools:layout_editor_absoluteX="0dp" />
-
-    <View
-        android:id="@+id/divider4"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginBottom="456dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toTopOf="@+id/divider"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.266"
         tools:layout_editor_absoluteX="0dp" />
 
     <RadioGroup
@@ -145,31 +123,37 @@
         android:text=""
         app:layout_constraintBottom_toTopOf="@+id/locationLabel"
         app:layout_constraintEnd_toStartOf="@+id/characterImg"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toEndOf="@+id/chooseMap"
-        app:layout_constraintTop_toBottomOf="@+id/characterLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/characterLabel"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/characterLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_width="56dp"
+        android:layout_height="25dp"
         android:layout_marginBottom="140dp"
         android:text="@string/character"
         android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@+id/divider"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
 
     <TextView
         android:id="@+id/locationLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="84dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginBottom="92dp"
         android:text="@string/location"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/characterLabel"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/locationOutput"
@@ -208,7 +192,7 @@
         app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toEndOf="@+id/newGameButton"
         app:layout_constraintTop_toTopOf="@+id/divider"
-        app:layout_constraintVertical_bias="0.608" />
+        app:layout_constraintVertical_bias="0.409" />
 
     <CheckBox
         android:id="@+id/high_box"
@@ -246,18 +230,5 @@
         app:layout_constraintHorizontal_bias="0.38"
         app:layout_constraintStart_toEndOf="@+id/mid_box"
         app:layout_constraintVertical_bias="0.523" />
-
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:visibility="visible"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:adSize="BANNER"
-        app:adUnitId="ca-app-pub-1434361778834991/8268462243"
-        app:layout_constraintBottom_toTopOf="@+id/divider3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/divider4"
-        app:layout_constraintVertical_bias="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
