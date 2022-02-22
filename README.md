@@ -1,4 +1,5 @@
-![Logo12_small](https://user-images.githubusercontent.com/22829567/152051902-5934e857-11db-4557-b702-7194b42506e5.png)
+![Logo12_small (1)](https://user-images.githubusercontent.com/22829567/153646045-f8fff450-a9b9-4832-8cce-53e9fe1f6eb9.png)
+
 
 The app displays a random character and location. Locations can be filtered by their loot type (High, Mid, Basic) with checkmarks. All characters and locations on all three maps are supported. The app updates as the game updates per season. System dark theme is supported. The color theme of the app corresponds with the color theme of the game season.
 
